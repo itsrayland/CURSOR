@@ -1,1 +1,298 @@
-THIS SHOULD BE A LINTER ERROR
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White House Design System - Style Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-guide.css">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="style-guide">
+        <!-- Header -->
+        <header class="sg-header">
+            <div class="container">
+                <h1>White House Design System</h1>
+                <p class="sg-subtitle">A comprehensive style guide for official government digital communications</p>
+                <nav class="sg-nav">
+                    <a href="#colors">Colors</a>
+                    <a href="#typography">Typography</a>
+                    <a href="#components">Components</a>
+                    <a href="#layout">Layout</a>
+                    <a href="#usage">Usage Guidelines</a>
+                    <a href="index.html" class="back-link">← Back to Website</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="sg-main">
+            <div class="container">
+                <!-- Introduction -->
+                <section class="sg-section">
+                    <h2>Introduction</h2>
+                    <p>This style guide establishes the visual identity and design principles for the White House digital presence. It ensures consistency, accessibility, and professionalism across all digital communications while maintaining the dignity and authority appropriate for the highest office in the United States.</p>
+                </section>
+
+                <!-- Colors -->
+                <section class="sg-section" id="colors">
+                    <h2>Color Palette</h2>
+                    <p>Our color palette reflects the American flag and conveys trust, authority, and patriotism.</p>
+                    
+                    <div class="color-section">
+                        <h3>Primary Colors</h3>
+                        <div class="color-grid">
+                            <div class="color-card">
+                                <div class="color-swatch primary-blue"></div>
+                                <div class="color-info">
+                                    <h4>Primary Blue</h4>
+                                    <code>#003366</code>
+                                    <p>Main brand color for headers, navigation, and primary elements</p>
+                                </div>
+                            </div>
+                            <div class="color-card">
+                                <div class="color-swatch secondary-blue"></div>
+                                <div class="color-info">
+                                    <h4>Secondary Blue</h4>
+                                    <code>#1f4788</code>
+                                    <p>Supporting blue for gradients and interactive states</p>
+                                </div>
+                            </div>
+                            <div class="color-card">
+                                <div class="color-swatch accent-red"></div>
+                                <div class="color-info">
+                                    <h4>Accent Red</h4>
+                                    <code>#cc0000</code>
+                                    <p>Call-to-action buttons and important highlights</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="color-section">
+                        <h3>Supporting Colors</h3>
+                        <div class="color-grid">
+                            <div class="color-card">
+                                <div class="color-swatch gold"></div>
+                                <div class="color-info">
+                                    <h4>Gold</h4>
+                                    <code>#d4af37</code>
+                                    <p>Presidential seal and special accents</p>
+                                </div>
+                            </div>
+                            <div class="color-card">
+                                <div class="color-swatch light-blue"></div>
+                                <div class="color-info">
+                                    <h4>Light Blue</h4>
+                                    <code>#e6f0ff</code>
+                                    <p>Subtle backgrounds and text on dark themes</p>
+                                </div>
+                            </div>
+                            <div class="color-card">
+                                <div class="color-swatch light-gray"></div>
+                                <div class="color-info">
+                                    <h4>Light Gray</h4>
+                                    <code>#f8f9fa</code>
+                                    <p>Section backgrounds and subtle separations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Typography -->
+                <section class="sg-section" id="typography">
+                    <h2>Typography</h2>
+                    <p>Typography combines classic serif elegance with modern sans-serif readability.</p>
+                    
+                    <div class="typography-section">
+                        <h3>Font Families</h3>
+                        <div class="fonts-grid">
+                            <div class="font-sample">
+                                <h4 class="font-serif">Georgia (Serif)</h4>
+                                <p class="font-serif">Used for headlines, titles, and formal content. Conveys tradition and authority.</p>
+                                <p class="font-code">font-family: 'Georgia', serif;</p>
+                            </div>
+                            <div class="font-sample">
+                                <h4 class="font-sans">Source Sans Pro (Sans-serif)</h4>
+                                <p class="font-sans">Used for body text, navigation, and interface elements. Ensures optimal readability.</p>
+                                <p class="font-code">font-family: 'Source Sans Pro', sans-serif;</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="typography-section">
+                        <h3>Heading Hierarchy</h3>
+                        <div class="headings-demo">
+                            <h1 class="sg-h1">Heading Level 1 - 2.5rem</h1>
+                            <h2 class="sg-h2">Heading Level 2 - 2rem</h2>
+                            <h3 class="sg-h3">Heading Level 3 - 1.5rem</h3>
+                            <h4 class="sg-h4">Heading Level 4 - 1.25rem</h4>
+                        </div>
+                    </div>
+
+                    <div class="typography-section">
+                        <h3>Body Text</h3>
+                        <div class="text-samples">
+                            <p class="text-normal">Normal body text (16px) - Used for standard content, ensuring optimal readability across all devices and accessibility compliance.</p>
+                            <p class="text-large">Large body text (20px) - Used for important statements, introductory paragraphs, and emphasized content.</p>
+                            <p class="text-small">Small text (14px) - Used for captions, metadata, and secondary information.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Components -->
+                <section class="sg-section" id="components">
+                    <h2>Components</h2>
+                    <p>Reusable interface components that maintain consistency across the site.</p>
+
+                    <div class="component-section">
+                        <h3>Buttons</h3>
+                        <div class="component-demo">
+                            <button class="btn btn-primary">Primary Button</button>
+                            <button class="btn btn-secondary">Secondary Button</button>
+                            <button class="btn btn-primary" disabled>Disabled Button</button>
+                        </div>
+                        <div class="component-code">
+                            <code>&lt;button class="btn btn-primary"&gt;Primary Button&lt;/button&gt;</code>
+                        </div>
+                    </div>
+
+                    <div class="component-section">
+                        <h3>Cards</h3>
+                        <div class="component-demo">
+                            <div class="content-card demo-card">
+                                <div class="card-content">
+                                    <span class="card-category">Category</span>
+                                    <h3>Card Title</h3>
+                                    <p>Card description text that provides context and information about the content.</p>
+                                    <a href="#" class="read-more">Read More →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component-section">
+                        <h3>Navigation</h3>
+                        <div class="component-demo">
+                            <nav class="demo-nav">
+                                <ul>
+                                    <li><a href="#" class="active">Active Link</a></li>
+                                    <li><a href="#">Regular Link</a></li>
+                                    <li><a href="#">Another Link</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="component-section">
+                        <h3>Category Tags</h3>
+                        <div class="component-demo">
+                            <span class="card-category">Presidential Statement</span>
+                            <span class="card-category">Press Briefing</span>
+                            <span class="card-category">Policy Update</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Layout -->
+                <section class="sg-section" id="layout">
+                    <h2>Layout System</h2>
+                    <p>Consistent spacing and grid systems ensure visual harmony and proper information hierarchy.</p>
+
+                    <div class="layout-section">
+                        <h3>Spacing Scale</h3>
+                        <div class="spacing-demo">
+                            <div class="spacing-item">
+                                <div class="spacing-bar spacing-xs"></div>
+                                <span>XS - 0.5rem (8px)</span>
+                            </div>
+                            <div class="spacing-item">
+                                <div class="spacing-bar spacing-sm"></div>
+                                <span>SM - 1rem (16px)</span>
+                            </div>
+                            <div class="spacing-item">
+                                <div class="spacing-bar spacing-md"></div>
+                                <span>MD - 1.5rem (24px)</span>
+                            </div>
+                            <div class="spacing-item">
+                                <div class="spacing-bar spacing-lg"></div>
+                                <span>LG - 2rem (32px)</span>
+                            </div>
+                            <div class="spacing-item">
+                                <div class="spacing-bar spacing-xl"></div>
+                                <span>XL - 3rem (48px)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layout-section">
+                        <h3>Grid System</h3>
+                        <p>Responsive grid system adapts to different screen sizes while maintaining content hierarchy.</p>
+                        <div class="grid-demo">
+                            <div class="grid-item">Grid Item 1</div>
+                            <div class="grid-item">Grid Item 2</div>
+                            <div class="grid-item">Grid Item 3</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Usage Guidelines -->
+                <section class="sg-section" id="usage">
+                    <h2>Usage Guidelines</h2>
+                    
+                    <div class="guidelines-grid">
+                        <div class="guideline-card">
+                            <h3>🎨 Visual Hierarchy</h3>
+                            <ul>
+                                <li>Use primary blue for main headings and navigation</li>
+                                <li>Reserve red for important calls-to-action</li>
+                                <li>Maintain consistent spacing between elements</li>
+                                <li>Use serif fonts for formal titles and content</li>
+                            </ul>
+                        </div>
+
+                        <div class="guideline-card">
+                            <h3>♿ Accessibility</h3>
+                            <ul>
+                                <li>Ensure minimum 4.5:1 color contrast ratio</li>
+                                <li>Use semantic HTML structure</li>
+                                <li>Provide alt text for all images</li>
+                                <li>Support keyboard navigation</li>
+                            </ul>
+                        </div>
+
+                        <div class="guideline-card">
+                            <h3>📱 Responsive Design</h3>
+                            <ul>
+                                <li>Mobile-first approach for all components</li>
+                                <li>Touch-friendly button sizes (44px minimum)</li>
+                                <li>Flexible grid systems for content adaptation</li>
+                                <li>Readable text sizes across all devices</li>
+                            </ul>
+                        </div>
+
+                        <div class="guideline-card">
+                            <h3>✍️ Content Voice</h3>
+                            <ul>
+                                <li>Formal, respectful, and authoritative tone</li>
+                                <li>Clear, concise language for all audiences</li>
+                                <li>American English spelling and grammar</li>
+                                <li>Professional photography and imagery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="sg-footer">
+                    <div class="container">
+                        <p>White House Design System - Ensuring consistent, accessible, and professional digital communications</p>
+                        <p><a href="index.html">← Return to Main Website</a></p>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
