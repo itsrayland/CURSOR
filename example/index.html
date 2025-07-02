@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasker - Dynamic Task Management</title>
+  <link rel="stylesheet" href="../src/styles/base.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <h1>📋 Tasker</h1>
+        <div class="theme-selector-wrapper">
+          <label for="theme-selector">Theme:</label>
+          <select id="theme-selector" class="theme-selector">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="ocean">Ocean</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Task Form -->
+    <form id="task-form" class="task-form">
+      <div class="form-group">
+        <input 
+          type="text" 
+          id="task-input" 
+          class="task-input" 
+          placeholder="What needs to be done?"
+          required
+          autocomplete="off"
+        >
+        <select id="priority-select" class="priority-select">
+          <option value="low">Low Priority</option>
+          <option value="medium" selected>Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Add Task</button>
+      </div>
+    </form>
+
+    <!-- Task Statistics -->
+    <div class="task-stats">
+      <div class="stat-card">
+        <h3>Total Tasks</h3>
+        <div class="stat-value" id="total-tasks">0</div>
+      </div>
+      <div class="stat-card">
+        <h3>Active Tasks</h3>
+        <div class="stat-value" id="active-tasks">0</div>
+      </div>
+      <div class="stat-card">
+        <h3>Completed</h3>
+        <div class="stat-value" id="completed-tasks">0</div>
+      </div>
+      <div class="stat-card">
+        <h3>Completion Rate</h3>
+        <div class="stat-value" id="completion-rate">0%</div>
+      </div>
+    </div>
+
+    <!-- Task Filters -->
+    <div class="task-filters">
+      <button class="filter-btn active" data-filter="all">All Tasks</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+      <button class="filter-btn" data-filter="high">High Priority</button>
+      <button class="filter-btn" data-filter="medium">Medium Priority</button>
+      <button class="filter-btn" data-filter="low">Low Priority</button>
+    </div>
+
+    <!-- Task List -->
+    <div class="task-list" id="task-list">
+      <div class="empty-state">
+        <h3>No tasks yet</h3>
+        <p>Create your first task to get started!</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../src/styles/StyleCoordinator.js"></script>
+  <script src="../src/tasker.js"></script>
+</body>
+</html>
