@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFI Response System - FEMA Modular Office</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .rfi-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .rfi-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .rfi-header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .system-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .control-panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        .btn-rfi {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 10px;
+            background: var(--accent-red);
+            color: white;
+        }
+        .document-preview {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .rfi-document {
+            width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto;
+            background: white;
+            font-family: 'Times New Roman', serif;
+            font-size: 12pt;
+            line-height: 1.0;
+            padding: 1in;
+            box-sizing: border-box;
+            transform: scale(0.7);
+            transform-origin: top center;
+        }
+        .rfi-document h1 {
+            font-size: 16pt;
+            text-align: center;
+            margin-bottom: 24pt;
+            font-weight: bold;
+        }
+        .rfi-document h2 {
+            font-size: 14pt;
+            margin-top: 18pt;
+            margin-bottom: 12pt;
+            font-weight: bold;
+        }
+        .cover-page {
+            text-align: center;
+            padding-top: 1in;
+        }
+        .company-info table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5in;
+        }
+        .company-info td {
+            padding: 8pt;
+            border: 1pt solid #000;
+            vertical-align: top;
+            text-align: left;
+        }
+        @media print {
+            .control-panel,
+            .system-layout {
+                display: none !important;
+            }
+            .rfi-document {
+                transform: none !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="seal">🏛️</div>
+                    <div class="logo-text">
+                        <h1>The White House</h1>
+                        <p>Washington</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="style-guide.html">Style Guide</a></li>
+                        <li><a href="dos-interface.html">DOS Interface</a></li>
+                        <li><a href="company-directory.html">Directory</a></li>
+                        <li><a href="claude-best-practices.html">Best Practices</a></li>
+                        <li><a href="#" class="active">RFI System</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="rfi-container">
+        <div class="rfi-header">
+            <h1>📄 RFI Response System</h1>
+            <p>FEMA Modular Office - DHS/FEMA/Mission Support/Region 2</p>
+            <div style="background: var(--accent-red); color: white; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-top: 15px;">
+                Due: 2PM ET July 11, 2025
+            </div>
+        </div>
+
+        <div class="system-layout">
+            <div class="control-panel">
+                <h3 style="color: var(--primary-blue); margin-bottom: 20px;">Company Information</h3>
+                
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" placeholder="Your Company Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="companyAddress">Address</label>
+                    <textarea id="companyAddress" placeholder="Full company address"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactName">Point of Contact</label>
+                    <input type="text" id="contactName" placeholder="Contact person name">
+                </div>
+
+                <div class="form-group">
+                    <label for="contactPhone">Phone</label>
+                    <input type="tel" id="contactPhone" placeholder="(000) 000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="contactEmail">Email</label>
+                    <input type="email" id="contactEmail" placeholder="contact@company.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="businessSize">Business Size (NAICS 238390)</label>
+                    <select id="businessSize">
+                        <option value="">Select Size</option>
+                        <option value="Small Business">Small Business</option>
+                        <option value="Large Business">Large Business</option>
+                        <option value="Woman-Owned Small Business">Woman-Owned Small Business</option>
+                        <option value="Veteran-Owned Small Business">Veteran-Owned Small Business</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="response1">1. Modular Office Experience</label>
+                    <textarea id="response1" placeholder="Describe 30x40 foot modular office experience..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="response2">2. HVAC & Electrical</label>
+                    <textarea id="response2" placeholder="Detail HVAC and 220V capabilities..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="response3">3. St. Croix Services</label>
+                    <textarea id="response3" placeholder="Explain end-to-end service for St. Croix..."></textarea>
+                </div>
+
+                <button class="btn-rfi" onclick="updateDocument()">📄 Update Document</button>
+                <button class="btn-rfi" onclick="saveResponse()">💾 Save Response</button>
+                <button class="btn-rfi" onclick="window.print()">🖨️ Print Document</button>
+            </div>
+
+            <div class="document-preview">
+                <div style="background: var(--primary-blue); color: white; padding: 20px; text-align: center;">
+                    <h3>📋 RFI Response Document - 8.5" x 11" Format</h3>
+                </div>
+                
+                <div class="rfi-document" id="rfiDocument">
+                    <div class="cover-page">
+                        <h1>RESPONSE TO REQUEST FOR INFORMATION</h1>
+                        <h2>DHS/FEMA/Mission Support/Region 2</h2>
+                        <h2>Modular Office</h2>
+                        <h3>NAICS Code: 238390</h3>
+                        
+                        <div class="company-info">
+                            <table>
+                                <tr>
+                                    <td style="width: 30%; font-weight: bold;">Notice Information</td>
+                                    <td>
+                                        <strong>Title:</strong> Modular Office<br>
+                                        <strong>Agency:</strong> DHS/FEMA/Mission Support/Region 2<br>
+                                        <strong>NAICS Code:</strong> 238390<br>
+                                        <strong>Response Due:</strong> 2PM ET July 11, 2025
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Company Name</td>
+                                    <td id="doc-company-name">[Company Name]</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Address</td>
+                                    <td id="doc-company-address">[Company Address]</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Point of Contact</td>
+                                    <td>
+                                        <span id="doc-contact-name">[Contact Name]</span><br>
+                                        Phone: <span id="doc-contact-phone">[Phone]</span><br>
+                                        Email: <span id="doc-contact-email">[Email]</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Business Size</td>
+                                    <td id="doc-business-size">[Business Size per NAICS 238390]</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div style="page-break-before: always; padding-top: 0;">
+                        <h1>TECHNICAL CAPABILITIES AND EXPERIENCE</h1>
+                        
+                        <h2>A. Statement of Intent</h2>
+                        <p>Yes, we intend to submit a proposal on any future solicitation related to this requirement.</p>
+
+                        <h2>B. Market Research Responses</h2>
+                        
+                        <h3>1. Supply and Install Modular Offices (30 feet X 40 feet)</h3>
+                        <p id="doc-response-1">[Response to modular office capabilities]</p>
+
+                        <h3>2. Delivery and Install of HVAC and 220V Connection</h3>
+                        <p id="doc-response-2">[Response to HVAC and electrical capabilities]</p>
+
+                        <h3>3. Wrap-Around Services for St. Croix Delivery</h3>
+                        <p id="doc-response-3">[Response to comprehensive service capabilities]</p>
+
+                        <h2>C. Additional Information</h2>
+                        <p>This response is submitted in accordance with the Request for Information issued by FEMA for market research purposes. We understand this is not a solicitation and no commitment is made by the Government.</p>
+                        
+                        <p>Our company is prepared to provide detailed technical specifications, project timelines, and cost estimates upon issuance of any future solicitation.</p>
+                        
+                        <p><strong>Submitted by:</strong><br>
+                        <span id="doc-contact-name-sig">[Contact Name]</span><br>
+                        <span id="doc-company-name-sig">[Company Name]</span><br>
+                        Date: <span id="submission-date"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: #fff3cd; border-left: 4px solid #f39c12; padding: 15px; border-radius: 6px; margin: 20px 0;">
+            <strong>⚠️ Important:</strong> Response due by <strong>2:00PM ET, July 11, 2025</strong> to john.liu@fema.dhs.gov. Format: Microsoft Word or PDF, Times New Roman 12pt, single spacing, max 25 pages.
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSubmissionDate();
+            loadSampleData(); // Remove this in production
+        });
+
+        function updateDocument() {
+            const companyName = document.getElementById('companyName').value || '[Company Name]';
+            const companyAddress = document.getElementById('companyAddress').value || '[Company Address]';
+            const contactName = document.getElementById('contactName').value || '[Contact Name]';
+            const contactPhone = document.getElementById('contactPhone').value || '[Phone]';
+            const contactEmail = document.getElementById('contactEmail').value || '[Email]';
+            const businessSize = document.getElementById('businessSize').value || '[Business Size per NAICS 238390]';
+            const response1 = document.getElementById('response1').value || '[Response to modular office capabilities]';
+            const response2 = document.getElementById('response2').value || '[Response to HVAC and electrical capabilities]';
+            const response3 = document.getElementById('response3').value || '[Response to comprehensive service capabilities]';
+
+            document.getElementById('doc-company-name').textContent = companyName;
+            document.getElementById('doc-company-address').innerHTML = companyAddress.replace(/\n/g, '<br>');
+            document.getElementById('doc-contact-name').textContent = contactName;
+            document.getElementById('doc-contact-phone').textContent = contactPhone;
+            document.getElementById('doc-contact-email').textContent = contactEmail;
+            document.getElementById('doc-business-size').textContent = businessSize;
+            document.getElementById('doc-response-1').innerHTML = response1.replace(/\n/g, '<br>');
+            document.getElementById('doc-response-2').innerHTML = response2.replace(/\n/g, '<br>');
+            document.getElementById('doc-response-3').innerHTML = response3.replace(/\n/g, '<br>');
+            document.getElementById('doc-contact-name-sig').textContent = contactName;
+            document.getElementById('doc-company-name-sig').textContent = companyName;
+        }
+
+        function updateSubmissionDate() {
+            const today = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('submission-date').textContent = today;
+        }
+
+        function saveResponse() {
+            const responseData = {
+                id: Date.now(),
+                timestamp: new Date().toLocaleString(),
+                companyName: document.getElementById('companyName').value,
+                companyAddress: document.getElementById('companyAddress').value,
+                contactName: document.getElementById('contactName').value,
+                contactPhone: document.getElementById('contactPhone').value,
+                contactEmail: document.getElementById('contactEmail').value,
+                businessSize: document.getElementById('businessSize').value,
+                response1: document.getElementById('response1').value,
+                response2: document.getElementById('response2').value,
+                response3: document.getElementById('response3').value
+            };
+
+            let savedResponses = JSON.parse(localStorage.getItem('rfi-responses') || '[]');
+            savedResponses.push(responseData);
+            localStorage.setItem('rfi-responses', JSON.stringify(savedResponses));
+            
+            alert('✅ Response saved successfully!');
+        }
+
+        function loadSampleData() {
+            document.getElementById('companyName').value = 'Advanced Modular Solutions LLC';
+            document.getElementById('companyAddress').value = 'Port of Miami Industrial Complex\n11401 NW 107th Street, Suite 200\nMiami, FL 33178\nUnited States';
+            document.getElementById('contactName').value = 'John Smith, P.E.';
+            document.getElementById('contactPhone').value = '(305) 863-0081';
+            document.getElementById('contactEmail').value = 'j.smith@advancedmodular.com';
+            document.getElementById('businessSize').value = 'Small Business';
+            document.getElementById('response1').value = 'Our company has extensive experience in manufacturing, delivering, and installing modular office structures specifically designed for Caribbean environments. We have successfully completed over 150 modular office installations, including 25+ structures of 30x40 foot configurations for government and commercial clients in hurricane-prone regions.\n\nSpecifications for 30x40 Modular Office:\n• Steel frame construction with 0.29 ga. ribbed steel exterior finish\n• Hurricane-resistant design rated for 185+ mph wind loads (Category 5)\n• Energy-efficient insulation systems with R-21 walls and R-30 roof\n• 45 mil EPDM roofing material with 20-year warranty\n• VCG interior wall finish and VCT flooring throughout\n• LED lighting with occupancy sensors for energy efficiency\n• Impact-resistant windows rated for 200+ mph projectile resistance\n• Steel entry doors with multi-point locking systems\n• Pre-engineered for IBC compliance and USVI building codes\n• Delivered via specialized cargo vessel with crane placement capability\n• 1,200 sq ft of climate-controlled workspace with private offices and open areas\n• Modular design allows for easy expansion or reconfiguration';
+            document.getElementById('response2').value = 'We provide complete HVAC systems specifically engineered for Caribbean tropical climates with high humidity and salt air conditions. Our systems include:\n\nHVAC System Specifications:\n• Two (2) 5-ton split-system air conditioning units with heat pumps\n• High-efficiency units rated 16+ SEER for tropical operation\n• Marine-grade corrosion-resistant coils for salt air environments\n• Variable-speed compressors for optimal humidity control\n• Programmable thermostats with remote monitoring capability\n• Redundant systems ensure continuous operation if one unit fails\n\n220V Electrical Systems:\n• 200-amp main electrical panel (120/240V single phase)\n• Emergency generator connection capability\n• GFCI protection throughout for humid environments\n• Lightning protection systems standard\n• Underground electrical service entrance\n• Energy Star rated electrical components\n• Full compliance with USVI electrical codes and NEC standards\n\nOur certified technicians hold current licenses in the US Virgin Islands and have completed 50+ installations in similar Caribbean environments. All equipment includes extended warranties covering salt air corrosion and tropical weather conditions.';
+            document.getElementById('response3').value = 'We offer comprehensive wrap-around services specifically designed for Virgin Islands logistics and delivery challenges:\n\nShipping & Logistics:\n• Direct cargo vessel service via VI Cargo and Tropical Shipping lines\n• Specialized modular transport containers (40ft high-cube)\n• Professional rigging services through Able Machinery Movers\n• Container shipping cost: $3,500-$5,500 per 40ft container to St. Croix\n• Transit time: 5-7 days from Port of Miami to St. Croix\n• Customs clearance assistance for USVI import requirements\n\nOn-Island Installation Services:\n• Local crane services (75-ton capacity) for precise placement\n• Concrete foundation preparation and installation\n• Site preparation including grading and utility connections\n• Water connection to existing 1" spigot supply\n• Sewer connection to 2" waste line with proper slope\n• Electrical connection and testing by USVI-licensed electricians\n• HVAC startup and commissioning by EPA-certified technicians\n\nProject Timeline:\n• Manufacturing: 6-8 weeks\n• Shipping: 1 week\n• Site preparation: 1-2 weeks\n• Installation and commissioning: 1 week\n• Total project duration: 10-12 weeks from order\n\nLocal Support:\n• Partnership with Caribbean Cooling Company (Est. 1969) for ongoing HVAC maintenance\n• 24/7 emergency service availability\n• Annual maintenance contracts available\n• Local parts inventory maintained on St. Croix\n• Comprehensive warranty: 2 years parts/labor, 10 years structural';
+            updateDocument();
+        }
+
+        // Auto-update document when inputs change
+        document.addEventListener('input', function(e) {
+            if (e.target.matches('input, select, textarea')) {
+                updateDocument();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOS Testing Interface - Government Systems</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* DOS Interface Specific Styles */
+        body {
+            background-color: #000000;
+            color: #00ff00;
+            font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .dos-container {
+            min-height: 100vh;
+            background-color: #000000;
+            position: relative;
+        }
+
+        .dos-header {
+            background-color: #000080;
+            color: #ffffff;
+            padding: 8px;
+            border-bottom: 2px solid #00ff00;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .dos-terminal {
+            padding: 20px;
+            background-color: #000000;
+            color: #00ff00;
+            font-size: 14px;
+            line-height: 1.4;
+            text-shadow: 0 0 2px #00ff00;
+        }
+
+        .prompt-line {
+            margin-bottom: 5px;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+            background-color: #00ff00;
+            color: #000000;
+            padding: 0 2px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .test-system {
+            border: double 3px #00ff00;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #001100;
+        }
+
+        .test-header {
+            text-align: center;
+            font-size: 16px;
+            color: #ffff00;
+            margin-bottom: 20px;
+            text-shadow: 0 0 3px #ffff00;
+        }
+
+        .question-block {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: solid 1px #00ff00;
+            background-color: #000a00;
+        }
+
+        .question-number {
+            color: #ff6600;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .question-text {
+            color: #ffffff;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .answer-options {
+            margin-left: 20px;
+        }
+
+        .answer-option {
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .answer-option:hover {
+            background-color: #003300;
+        }
+
+        .answer-option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .dos-button {
+            background-color: #000080;
+            color: #ffffff;
+            border: 2px solid #00ff00;
+            padding: 10px 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            cursor: pointer;
+            margin: 10px 5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .dos-button:hover {
+            background-color: #00ff00;
+            color: #000000;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .results-panel {
+            margin-top: 20px;
+            padding: 15px;
+            border: double 3px #ffff00;
+            background-color: #330000;
+            color: #ffff00;
+            display: none;
+        }
+
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #000080;
+            color: #ffffff;
+            padding: 8px;
+            font-size: 12px;
+            border-top: 1px solid #00ff00;
+        }
+
+        .navigation-menu {
+            background-color: #003300;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: solid 1px #00ff00;
+        }
+
+        .nav-item {
+            color: #00ff00;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 5px;
+            border: solid 1px transparent;
+        }
+
+        .nav-item:hover {
+            border: solid 1px #00ff00;
+            background-color: #006600;
+        }
+
+        .system-info {
+            color: #666666;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #003300;
+            border: 1px solid #00ff00;
+            margin: 10px 0;
+            overflow: hidden;
+            display: none;
+        }
+
+        .loading-fill {
+            height: 100%;
+            background-color: #00ff00;
+            width: 0%;
+            transition: width 2s ease-in-out;
+        }
+
+        @keyframes terminal-flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; }
+        }
+
+        .dos-terminal {
+            animation: terminal-flicker 4s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="dos-container">
+        <div class="dos-header">
+            ╔══════════════════════════════════════════════════════════════════════════════╗
+            ║               GOVERNMENT TESTING SYSTEM v2.1 - CLASSIFIED                   ║
+            ╚══════════════════════════════════════════════════════════════════════════════╝
+        </div>
+
+        <div class="navigation-menu">
+            <a href="index.html" class="nav-item">[MAIN]</a>
+            <a href="style-guide.html" class="nav-item">[STYLE GUIDE]</a>
+            <a href="company-directory.html" class="nav-item">[DIRECTORY]</a>
+            <a href="claude-best-practices.html" class="nav-item">[BEST PRACTICES]</a>
+            <a href="#" class="nav-item" onclick="resetSystem()">[RESET]</a>
+            <a href="#" class="nav-item" onclick="exitSystem()">[EXIT]</a>
+        </div>
+
+        <div class="dos-terminal">
+            <div class="system-info">
+                System Boot: 2024-12-19 14:35:22<br>
+                User: ADMIN_TERMINAL<br>
+                Security Level: CONFIDENTIAL<br>
+                Session ID: TST-20241219-001<br>
+                ════════════════════════════════════════════════════════════════════════════════
+            </div>
+
+            <div class="prompt-line">C:\GOVERNMENT\TESTING> INITIALIZE ASSESSMENT PROTOCOL</div>
+            <div class="prompt-line">Loading testing module... OK</div>
+            <div class="prompt-line">Establishing secure connection... OK</div>
+            <div class="prompt-line">Verifying user credentials... OK</div>
+            <div class="prompt-line">Starting assessment system<span class="cursor">_</span></div>
+
+            <div class="test-system">
+                <div class="test-header">
+                    ╔═══════════════════════════════════════════════════════════════════════╗
+                    ║                      PHYSICAL ASSESSMENT PROTOCOL                     ║
+                    ║                         STRENGTH & BALANCE TEST                       ║
+                    ╚═══════════════════════════════════════════════════════════════════════╝
+                </div>
+
+                <form id="testForm">
+                    <div class="question-block">
+                        <div class="question-number">QUESTION 01:</div>
+                        <div class="question-text">
+                            Subject demonstrates significant lateral force application during table engagement.<br>
+                            Distance measurements show 2.3m left displacement, 1.8m right displacement.<br>
+                            Despite apparent strain, subject maintains table control throughout session.<br><br>
+                            <strong>Assessment: What is the primary factor in subject's performance?</strong>
+                        </div>
+                        <div class="answer-options">
+                            <div class="answer-option">
+                                <input type="radio" name="q1" value="A" id="q1a">
+                                <label for="q1a">A) Superior core stability compensating for asymmetric force distribution</label>
+                            </div>
+                            <div class="answer-option">
+                                <input type="radio" name="q1" value="B" id="q1b">
+                                <label for="q1b">B) Tactical positioning overriding raw strength limitations</label>
+                            </div>
+                            <div class="answer-option">
+                                <input type="radio" name="q1" value="C" id="q1c">
+                                <label for="q1c">C) Psychological dominance masking physical disadvantage</label>
+                            </div>
+                            <div class="answer-option">
+                                <input type="radio" name="q1" value="D" id="q1d">
+                                <label for="q1d">D) Equipment leverage providing mechanical advantage</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-block">
+                        <div class="question-number">QUESTION 02:</div>
+                        <div class="question-text">
+                            Biometric sensors indicate elevated stress markers (HR: 165 BPM, BP: 145/92).<br>
+                            Subject exhibits visible fatigue but maintains competitive edge.<br>
+                            Victory achieved through sustained pressure rather than burst strength.<br><br>
+                            <strong>Analysis: Which training protocol would optimize performance?</strong>
+                        </div>
+                        <div class="answer-options">
+                            <div class="answer-option">
+                                <input type="radio" name="q2" value="A" id="q2a">
+                                <label for="q2a">A) High-intensity interval training for cardiovascular endurance</label>
+                            </div>
+                            <div class="answer-option">
+                                <input type="radio" name="q2" value="B" id="q2b">
+                                <label for="q2b">B) Isometric hold exercises for sustained muscle engagement</label>
+                            </div>
+                            <div class="answer-option">
+                                <input type="radio" name="q2" value="C" id="q2c">
+                                <label for="q2c">C) Mental resilience training for stress management</label>
+                            </div>
+                            <div class="answer-option">
+                                <input type="radio" name="q2" value="D" id="q2d">
+                                <label for="q2d">D) Asymmetric load training for force distribution balance</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-block">
+                        <div class="question-number">QUESTION 03:</div>
+                        <div class="question-text">
+                            Post-engagement analysis reveals subject's victory margin: 0.8 seconds.<br>
+                            Opponent showed superior initial force (25% higher peak output).<br>
+                            Subject's win attributed to strategic endurance management.<br><br>
+                            <strong>Tactical Assessment: What was the key success factor?</strong>
+                        </div>
+                        <div class="answer-options">
+                            <div class="answer-option">
+                                <input type="radio" name="q3" value="A" id="q3a">
+                                <label for="q3a">A) Energy conservation during initial phase</label>
+                            </div>
+                            <div class="answer-option">
+                                <input type="radio" name="q3" value="B" id="q3b">
+                                <label for="q3b">B) Psychological warfare through apparent struggle</label>
+                            </div>
+                            <div class="answer-option">
+                                <input type="radio" name="q3" value="C" id="q3c">
+                                <label for="q3c">C) Technical grip adjustment mid-engagement</label>
+                            </div>
+                            <div class="answer-option">
+                                <input type="radio" name="q3" value="D" id="q3d">
+                                <label for="q3d">D) Superior fatigue resistance training background</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="button" class="dos-button" onclick="submitTest()">Submit Assessment</button>
+                        <button type="button" class="dos-button" onclick="clearAnswers()">Clear All</button>
+                        <button type="button" class="dos-button" onclick="printReport()">Print Report</button>
+                    </div>
+                </form>
+
+                <div class="loading-bar" id="loadingBar">
+                    <div class="loading-fill" id="loadingFill"></div>
+                </div>
+
+                <div class="results-panel" id="resultsPanel">
+                    <div style="text-align: center; color: #ffff00; font-size: 16px; margin-bottom: 15px;">
+                        ╔═══════════════════════════════════════════════════════════════════════╗
+                        ║                         ASSESSMENT RESULTS                           ║
+                        ╚═══════════════════════════════════════════════════════════════════════╝
+                    </div>
+                    <div id="scoreDisplay"></div>
+                    <div id="analysisDisplay"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            STATUS: SYSTEM OPERATIONAL | SECURITY: ACTIVE | TIME: <span id="currentTime"></span> | USER: ADMIN_TERMINAL
+        </div>
+    </div>
+
+    <script>
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        function submitTest() {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+
+            if (!q1 || !q2 || !q3) {
+                alert('ERROR: ALL QUESTIONS MUST BE ANSWERED BEFORE SUBMISSION');
+                return;
+            }
+
+            // Show loading animation
+            document.getElementById('loadingBar').style.display = 'block';
+            document.getElementById('loadingFill').style.width = '100%';
+
+            setTimeout(() => {
+                // Calculate score
+                let score = 0;
+                const answers = [q1.value, q2.value, q3.value];
+                const correctAnswers = ['A', 'B', 'D']; // Correct answers for the test
+
+                answers.forEach((answer, index) => {
+                    if (answer === correctAnswers[index]) score++;
+                });
+
+                // Display results
+                displayResults(score, answers);
+                document.getElementById('loadingBar').style.display = 'none';
+                document.getElementById('resultsPanel').style.display = 'block';
+            }, 2000);
+        }
+
+        function displayResults(score, answers) {
+            const percentage = Math.round((score / 3) * 100);
+            let classification = '';
+            let recommendation = '';
+
+            if (percentage >= 80) {
+                classification = 'EXCELLENT - TACTICAL ANALYST LEVEL';
+                recommendation = 'RECOMMEND FOR ADVANCED TRAINING PROTOCOLS';
+            } else if (percentage >= 60) {
+                classification = 'SATISFACTORY - FIELD OPERATIVE LEVEL';
+                recommendation = 'ADDITIONAL TRAINING IN WEAK AREAS RECOMMENDED';
+            } else {
+                classification = 'REQUIRES IMPROVEMENT - TRAINEE LEVEL';
+                recommendation = 'COMPREHENSIVE RETRAINING PROTOCOL REQUIRED';
+            }
+
+            const scoreHtml = `
+                ASSESSMENT SCORE: ${score}/3 (${percentage}%)
+                CLASSIFICATION: ${classification}
+                
+                INDIVIDUAL RESPONSES:
+                Q1 (Core Stability): ${answers[0]} - ${answers[0] === 'A' ? 'CORRECT' : 'INCORRECT'}
+                Q2 (Training Protocol): ${answers[1]} - ${answers[1] === 'B' ? 'CORRECT' : 'INCORRECT'}  
+                Q3 (Success Factor): ${answers[2]} - ${answers[2] === 'D' ? 'CORRECT' : 'INCORRECT'}
+                
+                RECOMMENDATION: ${recommendation}
+                
+                ASSESSMENT COMPLETED: ${new Date().toLocaleString()}
+                REPORT ID: RPT-${Date.now()}
+            `;
+
+            document.getElementById('scoreDisplay').innerHTML = '<pre>' + scoreHtml + '</pre>';
+        }
+
+        function clearAnswers() {
+            document.getElementById('testForm').reset();
+            document.getElementById('resultsPanel').style.display = 'none';
+        }
+
+        function resetSystem() {
+            if (confirm('RESET SYSTEM? ALL DATA WILL BE LOST.')) {
+                clearAnswers();
+                location.reload();
+            }
+        }
+
+        function exitSystem() {
+            if (confirm('EXIT TESTING SYSTEM?')) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        function printReport() {
+            const resultsPanel = document.getElementById('resultsPanel');
+            if (resultsPanel.style.display === 'none') {
+                alert('ERROR: NO ASSESSMENT DATA TO PRINT. COMPLETE TEST FIRST.');
+                return;
+            }
+            window.print();
+        }
+
+        // Add some terminal effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate typing effect for cursor
+            const cursor = document.querySelector('.cursor');
+            if (cursor) {
+                cursor.style.animationDelay = '2s';
+            }
+        });
+    </script>
+</body>
+</html> 

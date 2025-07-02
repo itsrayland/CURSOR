@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Directory - PDF Report Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <style>
+        .directory-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .directory-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .directory-header h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+        .control-panel {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .action-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            background: var(--accent-red);
+            color: white;
+        }
+        .staff-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .staff-table th {
+            background: var(--light-gray);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        .staff-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .loading-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="seal">🏛️</div>
+                    <div class="logo-text">
+                        <h1>The White House</h1>
+                        <p>Washington</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="style-guide.html">Style Guide</a></li>
+                        <li><a href="dos-interface.html">DOS Interface</a></li>
+                        <li><a href="#" class="active">Directory</a></li>
+                        <li><a href="claude-best-practices.html">Best Practices</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="directory-container">
+        <div class="directory-header">
+            <h1>📊 Company Directory System</h1>
+            <p>Generate comprehensive PDF reports of all staff information</p>
+        </div>
+
+        <div class="control-panel">
+            <h3>📋 Report Generation Controls</h3>
+            <div style="margin: 20px 0;">
+                <label for="departmentFilter">Department:</label>
+                <select id="departmentFilter">
+                    <option value="all">All Departments</option>
+                    <option value="executive">Executive Office</option>
+                    <option value="security">Security</option>
+                    <option value="communications">Communications</option>
+                </select>
+            </div>
+            <button class="action-btn" onclick="generatePDF()">📄 Generate PDF Report</button>
+        </div>
+
+        <div style="background: white; border-radius: 8px; overflow: hidden;">
+            <table class="staff-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Title</th>
+                        <th>Department</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody id="staffTableBody">
+                    <tr><td>John Harrison</td><td>Chief of Staff</td><td>Executive Office</td><td>j.harrison@whitehouse.gov</td><td>202-456-1001</td></tr>
+                    <tr><td>Sarah Mitchell</td><td>Deputy Chief</td><td>Executive Office</td><td>s.mitchell@whitehouse.gov</td><td>202-456-1002</td></tr>
+                    <tr><td>Patricia Adams</td><td>Security Advisor</td><td>Security</td><td>p.adams@nsc.gov</td><td>202-456-2001</td></tr>
+                    <tr><td>Jennifer Brooks</td><td>Press Secretary</td><td>Communications</td><td>j.brooks@whitehouse.gov</td><td>202-456-3001</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Generating PDF Report...</h3>
+        </div>
+    </div>
+
+    <script>
+        const staffData = [
+            {name: 'John Harrison', title: 'Chief of Staff', department: 'Executive Office', email: 'j.harrison@whitehouse.gov', phone: '202-456-1001'},
+            {name: 'Sarah Mitchell', title: 'Deputy Chief of Staff', department: 'Executive Office', email: 's.mitchell@whitehouse.gov', phone: '202-456-1002'},
+            {name: 'Michael Torres', title: 'Senior Advisor', department: 'Executive Office', email: 'm.torres@whitehouse.gov', phone: '202-456-1003'},
+            {name: 'Patricia Adams', title: 'National Security Advisor', department: 'Security', email: 'p.adams@nsc.gov', phone: '202-456-2001'},
+            {name: 'James Wilson', title: 'Deputy Security Advisor', department: 'Security', email: 'j.wilson@nsc.gov', phone: '202-456-2002'},
+            {name: 'Jennifer Brooks', title: 'Press Secretary', department: 'Communications', email: 'j.brooks@whitehouse.gov', phone: '202-456-3001'},
+            {name: 'Andrew Thompson', title: 'Communications Director', department: 'Communications', email: 'a.thompson@whitehouse.gov', phone: '202-456-3002'},
+            {name: 'Richard Powell', title: 'Policy Director', department: 'Policy', email: 'r.powell@whitehouse.gov', phone: '202-456-4001'},
+            {name: 'Margaret Johnson', title: 'Chief Operating Officer', department: 'Operations', email: 'm.johnson@whitehouse.gov', phone: '202-456-5001'},
+            {name: 'Elizabeth Morgan', title: 'White House Counsel', department: 'Legal', email: 'e.morgan@whitehouse.gov', phone: '202-456-6001'}
+        ];
+
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            
+            setTimeout(() => {
+                const pdf = new jsPDF();
+                
+                // Header
+                pdf.setFontSize(20);
+                pdf.setTextColor(0, 51, 102);
+                pdf.text('WHITE HOUSE STAFF DIRECTORY', 20, 25);
+                
+                pdf.setFontSize(12);
+                pdf.text('Comprehensive Staff Information Report', 20, 35);
+                pdf.text('Generated: ' + new Date().toLocaleDateString(), 20, 45);
+                
+                // Table
+                const headers = [['Name', 'Title', 'Department', 'Email', 'Phone']];
+                const tableData = staffData.map(staff => [
+                    staff.name, staff.title, staff.department, staff.email, staff.phone
+                ]);
+                
+                pdf.autoTable({
+                    head: headers,
+                    body: tableData,
+                    startY: 55,
+                    styles: { fontSize: 9 },
+                    headStyles: { fillColor: [0, 51, 102] }
+                });
+                
+                // Footer
+                pdf.setFontSize(8);
+                pdf.text('CONFIDENTIAL - FOR OFFICIAL USE ONLY', 20, 280);
+                
+                const filename = 'WhiteHouse_Directory_' + new Date().toISOString().split('T')[0] + '.pdf';
+                pdf.save(filename);
+                
+                document.getElementById('loadingOverlay').style.display = 'none';
+                alert('PDF Generated: ' + filename + '\nRecords: ' + staffData.length);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

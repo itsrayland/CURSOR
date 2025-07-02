@@ -450,3 +450,152 @@
         font-size: 0.8rem;
     }
 }
+
+/* DOS Monospaced Report Styles */
+.dos-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.dos-report-container {
+    background-color: #000000;
+    border: 2px solid #333333;
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.dos-report-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00ff00, #ffff00, #ff0000);
+    opacity: 0.8;
+}
+
+.dos-report {
+    font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    line-height: 1.3;
+    color: #00ff00;
+    background-color: #000000;
+    padding: var(--spacing-lg);
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
+    text-shadow: 0 0 2px #00ff00;
+    border: none;
+}
+
+/* Different color schemes for different report types */
+.dos-section:nth-child(2) .dos-report {
+    color: #00ff00; /* Green for system status */
+}
+
+.dos-section:nth-child(3) .dos-report {
+    color: #ffff00; /* Yellow for personnel directory */
+}
+
+.dos-section:nth-child(4) .dos-report {
+    color: #ff6600; /* Orange for briefing */
+}
+
+.dos-section:nth-child(5) .dos-report {
+    color: #00ffff; /* Cyan for budget */
+}
+
+.dos-section:nth-child(6) .dos-report {
+    color: #ff00ff; /* Magenta for event log */
+}
+
+/* DOS Guidelines Section */
+.dos-guidelines {
+    background-color: #1a1a1a;
+    color: #cccccc;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border-left: 4px solid #00ff00;
+}
+
+.dos-guidelines h4 {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 0 2px #00ff00;
+}
+
+.dos-guidelines ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.dos-guidelines li {
+    margin-bottom: var(--spacing-xs);
+    padding-left: var(--spacing-md);
+    position: relative;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.dos-guidelines li:before {
+    content: ">";
+    color: #00ff00;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Scrollbar styling for DOS reports */
+.dos-report::-webkit-scrollbar {
+    height: 8px;
+}
+
+.dos-report::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.dos-report::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 4px;
+}
+
+.dos-report::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
+}
+
+/* Animation effect for DOS reports */
+@keyframes terminal-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.98; }
+}
+
+.dos-report {
+    animation: terminal-flicker 3s infinite;
+}
+
+/* Responsive adjustments for DOS reports */
+@media (max-width: 768px) {
+    .dos-report {
+        font-size: 11px;
+        padding: var(--spacing-md);
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 480px) {
+    .dos-report {
+        font-size: 10px;
+        padding: var(--spacing-sm);
+        line-height: 1.1;
+    }
+    
+    .dos-report-container {
+        margin-left: -var(--spacing-sm);
+        margin-right: -var(--spacing-sm);
+        border-radius: 0;
+    }
+}
