@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Vibe Coder's Prompt Engineering Workstation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🚀 Prompt Workstation</h1>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <button class="export-btn" id="exportBtn">📤</button>
+            </div>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="goal">🎯 Goal</button>
+            <button class="nav-btn" data-section="crafter">🧠 Crafter</button>
+            <button class="nav-btn" data-section="library">📚 Library</button>
+            <button class="nav-btn" data-section="test">⚡ Test</button>
+            <button class="nav-btn" data-section="log">🔄 Log</button>
+        </nav>
+
+        <!-- Content Sections -->
+        <main class="main-content">
+            
+            <!-- Goal Setter Section -->
+            <section class="content-section active" id="goal-section">
+                <div class="section-header">
+                    <h2>🎯 What are you building?</h2>
+                    <p>Start with your intent - this helps frame better prompts</p>
+                </div>
+                
+                <div class="goal-inputs">
+                    <div class="input-group">
+                        <label for="projectContext">Project Context</label>
+                        <textarea id="projectContext" placeholder="Describe what you're working on..."></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="currentChallenge">Current Challenge</label>
+                        <textarea id="currentChallenge" placeholder="What specific problem needs solving?"></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="desiredOutcome">Desired Outcome</label>
+                        <textarea id="desiredOutcome" placeholder="What should the AI help you achieve?"></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="constraints">Any Constraints</label>
+                        <textarea id="constraints" placeholder="Limitations, tech stack, requirements..."></textarea>
+                    </div>
+                </div>
+                
+                <button class="primary-btn" id="setGoalBtn">Set My Goal 🎯</button>
+            </section>
+
+            <!-- Prompt Crafter Section -->
+            <section class="content-section" id="crafter-section">
+                <div class="section-header">
+                    <h2>🧠 Prompt Crafter</h2>
+                    <p>The main space for writing and refining your prompts</p>
+                </div>
+
+                <!-- Prompt Recipe Buttons -->
+                <div class="recipe-buttons">
+                    <button class="recipe-btn" data-recipe="role">You are a [ROLE]...</button>
+                    <button class="recipe-btn" data-recipe="context">Here's the context: [CONTEXT]</button>
+                    <button class="recipe-btn" data-recipe="steps">Step by step:</button>
+                    <button class="recipe-btn" data-recipe="examples">Examples:</button>
+                </div>
+
+                <!-- Main Prompt Area -->
+                <div class="prompt-workspace">
+                    <textarea id="mainPrompt" placeholder="Start crafting your prompt here...
+
+Try one of the recipe buttons above, or check out the templates in the Library 📚"></textarea>
+                    
+                    <div class="prompt-meta">
+                        <div class="char-count">
+                            <span id="charCount">0</span> characters
+                        </div>
+                        <div class="vibe-rating">
+                            <label>How does this feel?</label>
+                            <div class="rating-stars">
+                                <span class="star" data-rating="1">⭐</span>
+                                <span class="star" data-rating="2">⭐</span>
+                                <span class="star" data-rating="3">⭐</span>
+                                <span class="star" data-rating="4">⭐</span>
+                                <span class="star" data-rating="5">⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crafter-actions">
+                    <button class="secondary-btn" id="clearPrompt">Clear</button>
+                    <button class="primary-btn" id="savePrompt">Save Prompt 💾</button>
+                </div>
+            </section>
+
+            <!-- Vibe Library Section -->
+            <section class="content-section" id="library-section">
+                <div class="section-header">
+                    <h2>📚 Vibe Library</h2>
+                    <p>Prompts that just work</p>
+                </div>
+
+                <div class="library-search">
+                    <input type="text" id="librarySearch" placeholder="Search your prompts...">
+                </div>
+
+                <div class="starter-templates">
+                    <h3>Starter Templates</h3>
+                    <div class="template-grid" id="starterTemplates">
+                        <!-- Templates will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="saved-prompts">
+                    <h3>Your Saved Prompts</h3>
+                    <div class="prompt-grid" id="savedPrompts">
+                        <!-- Saved prompts will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Test Section -->
+            <section class="content-section" id="test-section">
+                <div class="section-header">
+                    <h2>⚡ Quick Test</h2>
+                    <p>Feel how your prompt will work</p>
+                </div>
+
+                <div class="test-workspace">
+                    <div class="prompt-preview">
+                        <h3>Your Prompt</h3>
+                        <div id="promptPreview" class="preview-area">
+                            Your current prompt will appear here...
+                        </div>
+                    </div>
+
+                    <div class="context-injection">
+                        <h3>Test Context</h3>
+                        <textarea id="testContext" placeholder="Add sample code, context, or variables to test with..."></textarea>
+                    </div>
+
+                    <div class="mock-response">
+                        <h3>Expected AI Response</h3>
+                        <textarea id="mockResponse" placeholder="What kind of response are you expecting? Write it here to test your prompt's clarity..."></textarea>
+                    </div>
+                </div>
+
+                <div class="test-actions">
+                    <div class="vibe-check">
+                        <label>Does this prompt feel right?</label>
+                        <div class="vibe-buttons">
+                            <button class="vibe-btn good" id="vibeGood">👍 Yes</button>
+                            <button class="vibe-btn bad" id="vibeBad">👎 Needs work</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Iteration Log Section -->
+            <section class="content-section" id="log-section">
+                <div class="section-header">
+                    <h2>🔄 Iteration Log</h2>
+                    <p>Learn from your prompt engineering journey</p>
+                </div>
+
+                <div class="log-content">
+                    <div class="add-entry">
+                        <textarea id="logEntry" placeholder="What did you learn? What worked? What didn't?"></textarea>
+                        <button class="primary-btn" id="addLogEntry">Add Entry 📝</button>
+                    </div>
+
+                    <div class="log-timeline" id="logTimeline">
+                        <!-- Log entries will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
