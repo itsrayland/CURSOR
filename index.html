@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Vibe Coder's Prompt Engineering Workstation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🚀 Prompt Workstation</h1>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <button class="export-btn" id="exportBtn">📤</button>
+            </div>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="goal">🎯 Goal</button>
+            <button class="nav-btn" data-section="crafter">🧠 Crafter</button>
+            <button class="nav-btn" data-section="models">🤖 Models</button>
+            <button class="nav-btn" data-section="library">📚 Library</button>
+            <button class="nav-btn" data-section="styleguide">🎨 Style</button>
+            <button class="nav-btn" data-section="media">📸 Media</button>
+            <button class="nav-btn" data-section="test">⚡ Test</button>
+            <button class="nav-btn" data-section="specs">📋 Specs</button>
+            <button class="nav-btn" data-section="log">🔄 Log</button>
+        </nav>
+
+        <!-- Content Sections -->
+        <main class="main-content">
+            
+            <!-- Goal Setter Section -->
+            <section class="content-section active" id="goal-section">
+                <div class="section-header">
+                    <h2>🎯 What are you building?</h2>
+                    <p>Start with your intent - this helps frame better prompts</p>
+                </div>
+                
+                <div class="goal-inputs">
+                    <div class="input-group">
+                        <label for="projectContext">Project Context</label>
+                        <textarea id="projectContext" placeholder="Describe what you're working on..."></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="currentChallenge">Current Challenge</label>
+                        <textarea id="currentChallenge" placeholder="What specific problem needs solving?"></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="desiredOutcome">Desired Outcome</label>
+                        <textarea id="desiredOutcome" placeholder="What should the AI help you achieve?"></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="constraints">Any Constraints</label>
+                        <textarea id="constraints" placeholder="Limitations, tech stack, requirements..."></textarea>
+                    </div>
+                </div>
+<<<<<<< Updated upstream
+                
+                <button class="primary-btn" id="setGoalBtn">Set My Goal 🎯</button>
+            </section>
+=======
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#administration">Administration</a></li>
+                        <li><a href="#briefings">Briefings</a></li>
+                        <li><a href="#issues">Issues</a></li>
+                        <li><a href="dos-interface.html">DOS Interface</a></li>
+                        <li><a href="company-directory.html">Directory</a></li>
+                        <li><a href="claude-best-practices.html">Best Practices</a></li>
+                        <li><a href="shrink-wrap-methodology.html">Shrink Wrap Methodology</a></li>
+                        <li><a href="rfi-response-system.html">RFI System</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+>>>>>>> Stashed changes
+
+            <!-- Prompt Crafter Section -->
+            <section class="content-section" id="crafter-section">
+                <div class="section-header">
+                    <h2>🧠 Prompt Crafter</h2>
+                    <p>The main space for writing and refining your prompts</p>
+                </div>
+
+<<<<<<< Updated upstream
+                <!-- Prompt Recipe Buttons -->
+                <div class="recipe-buttons">
+                    <button class="recipe-btn" data-recipe="role">You are a [ROLE]...</button>
+                    <button class="recipe-btn" data-recipe="context">Here's the context: [CONTEXT]</button>
+                    <button class="recipe-btn" data-recipe="steps">Step by step:</button>
+                    <button class="recipe-btn" data-recipe="examples">Examples:</button>
+                </div>
+=======
+    <!-- Featured Content -->
+    <section class="featured-content">
+        <div class="container">
+            <h2>Latest from the White House</h2>
+            <div class="content-grid">
+                <article class="content-card featured">
+                    <div class="card-content">
+                        <span class="card-category">Presidential Statement</span>
+                        <h3>Remarks on Economic Recovery</h3>
+                        <p>The President delivered remarks on the nation's economic recovery and ongoing efforts to strengthen American manufacturing.</p>
+                        <a href="#" class="read-more">Read Full Statement →</a>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-content">
+                        <span class="card-category">Press Briefing</span>
+                        <h3>Daily Press Briefing</h3>
+                        <p>White House Press Secretary provides updates on administration priorities and policy initiatives.</p>
+                        <a href="#" class="read-more">Watch Briefing →</a>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-content">
+                        <span class="card-category">Policy Update</span>
+                        <h3>Infrastructure Investment</h3>
+                        <p>New investments in roads, bridges, and broadband to create jobs and strengthen communities nationwide.</p>
+                        <a href="#" class="read-more">Learn More →</a>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-content">
+                        <span class="card-category">Development Guide</span>
+                        <h3>📦 Shrink Wrap Methodology</h3>
+                        <p>Enterprise-grade software development approach for rapid, reliable deployment with minimal configuration overhead.</p>
+                        <a href="shrink-wrap-methodology.html" class="read-more">Explore Methodology →</a>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="card-content">
+                        <span class="card-category">AI Development</span>
+                        <h3>🤖 AI-Enhanced SDLC</h3>
+                        <p>Vibe Coders roadmap integration: Quality planning, systems thinking, and AI-assisted development for superior outcomes.</p>
+                        <a href="claude-best-practices.html#ai-enhanced" class="read-more">View AI Roadmap →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+>>>>>>> Stashed changes
+
+                <!-- Main Prompt Area -->
+                <div class="prompt-workspace">
+                    <textarea id="mainPrompt" placeholder="Start crafting your prompt here...
+
+Try one of the recipe buttons above, or check out the templates in the Library 📚"></textarea>
+                    
+                    <div class="prompt-meta">
+                        <div class="char-count">
+                            <span id="charCount">0</span> characters
+                        </div>
+                        <div class="vibe-rating">
+                            <label>How does this feel?</label>
+                            <div class="rating-stars">
+                                <span class="star" data-rating="1">⭐</span>
+                                <span class="star" data-rating="2">⭐</span>
+                                <span class="star" data-rating="3">⭐</span>
+                                <span class="star" data-rating="4">⭐</span>
+                                <span class="star" data-rating="5">⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crafter-actions">
+                    <button class="secondary-btn" id="clearPrompt">Clear</button>
+                    <button class="primary-btn" id="savePrompt">Save Prompt 💾</button>
+                </div>
+            </section>
+
+            <!-- AI Models Section -->
+            <section class="content-section" id="models-section">
+                <div class="section-header">
+                    <h2>🤖 AI Models</h2>
+                    <p>Configure your AI models for different tasks</p>
+                </div>
+
+                <div class="models-config">
+                    <div class="model-card">
+                        <h3>Claude/Sonnet</h3>
+                        <p>Conversational requirement gathering, draft specs</p>
+                        <div class="model-settings">
+                            <label>
+                                <input type="checkbox" id="claudeEnabled" checked> Enabled
+                            </label>
+                            <label>Best for:</label>
+                            <div class="use-cases">
+                                <span class="tag">Requirements</span>
+                                <span class="tag">Conversation</span>
+                                <span class="tag">Drafts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="model-card">
+                        <h3>OpenAI o3/GPT-4</h3>
+                        <p>Deep technical spec generation, code & JSX snippets</p>
+                        <div class="model-settings">
+                            <label>
+                                <input type="checkbox" id="openaiEnabled" checked> Enabled
+                            </label>
+                            <label>Best for:</label>
+                            <div class="use-cases">
+                                <span class="tag">Technical Specs</span>
+                                <span class="tag">Code Generation</span>
+                                <span class="tag">JSX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="model-card">
+                        <h3>ULM (Vision)</h3>
+                        <p>Image analysis, color extraction, moodboards</p>
+                        <div class="model-settings">
+                            <label>
+                                <input type="checkbox" id="ulmEnabled" checked> Enabled
+                            </label>
+                            <label>Best for:</label>
+                            <div class="use-cases">
+                                <span class="tag">Image Analysis</span>
+                                <span class="tag">Color Extraction</span>
+                                <span class="tag">Moodboards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-builder">
+                    <h3>AI Workflow Builder</h3>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <span class="step-number">1</span>
+                            <select id="step1Model">
+                                <option value="claude">Claude - Requirements</option>
+                                <option value="openai">OpenAI - Technical</option>
+                                <option value="ulm">ULM - Visual</option>
+                            </select>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <span class="step-number">2</span>
+                            <select id="step2Model">
+                                <option value="openai">OpenAI - Technical</option>
+                                <option value="claude">Claude - Requirements</option>
+                                <option value="ulm">ULM - Visual</option>
+                            </select>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <span class="step-number">3</span>
+                            <select id="step3Model">
+                                <option value="ulm">ULM - Visual</option>
+                                <option value="claude">Claude - Requirements</option>
+                                <option value="openai">OpenAI - Technical</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="primary-btn" id="saveWorkflow">Save Workflow 🔄</button>
+                </div>
+            </section>
+
+            <!-- Vibe Library Section -->
+            <section class="content-section" id="library-section">
+                <div class="section-header">
+                    <h2>📚 Vibe Library</h2>
+                    <p>Prompts that just work</p>
+                </div>
+
+                <div class="library-search">
+                    <input type="text" id="librarySearch" placeholder="Search your prompts...">
+                </div>
+
+                <div class="starter-templates">
+                    <h3>Coding Templates</h3>
+                    <div class="template-grid" id="starterTemplates">
+                        <!-- Templates will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="professional-templates">
+                    <h3>Professional Templates</h3>
+                    <div class="template-grid" id="professionalTemplates">
+                        <!-- Professional templates will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="saved-prompts">
+                    <h3>Your Saved Prompts</h3>
+                    <div class="prompt-grid" id="savedPrompts">
+                        <!-- Saved prompts will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Style Guide Section -->
+            <section class="content-section" id="styleguide-section">
+                <div class="section-header">
+                    <h2>🎨 Style Guide Designer</h2>
+                    <p>Generate comprehensive style guides and design systems</p>
+                </div>
+
+                <div class="style-inputs">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="projectName">Project Name</label>
+                            <input type="text" id="projectName" placeholder="e.g., Darzabi Dashboard">
+                        </div>
+                        <div class="input-group">
+                            <label for="brandKeywords">Brand Keywords</label>
+                            <input type="text" id="brandKeywords" placeholder="modern, clean, professional">
+                        </div>
+                    </div>
+
+                    <div class="color-palette-section">
+                        <h3>Color Palette</h3>
+                        <div class="color-inputs">
+                            <div class="color-input">
+                                <label>Primary</label>
+                                <input type="color" id="primaryColor" value="#007bff">
+                                <input type="text" id="primaryHex" value="#007bff">
+                            </div>
+                            <div class="color-input">
+                                <label>Secondary</label>
+                                <input type="color" id="secondaryColor" value="#6610f2">
+                                <input type="text" id="secondaryHex" value="#6610f2">
+                            </div>
+                            <div class="color-input">
+                                <label>Accent</label>
+                                <input type="color" id="accentColor" value="#28a745">
+                                <input type="text" id="accentHex" value="#28a745">
+                            </div>
+                        </div>
+                        <button class="secondary-btn" id="generatePalette">Generate Palette with AI 🎨</button>
+                    </div>
+
+                    <div class="typography-section">
+                        <h3>Typography</h3>
+                        <div class="font-selections">
+                            <div class="input-group">
+                                <label for="headingFont">Heading Font</label>
+                                <select id="headingFont">
+                                    <option value="Inter">Inter</option>
+                                    <option value="Roboto">Roboto</option>
+                                    <option value="Poppins">Poppins</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="bodyFont">Body Font</label>
+                                <select id="bodyFont">
+                                    <option value="Inter">Inter</option>
+                                    <option value="Roboto">Roboto</option>
+                                    <option value="system">System Default</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="style-preview">
+                    <h3>Live Preview</h3>
+                    <div class="preview-container" id="stylePreview">
+                        <!-- Live preview will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="style-actions">
+                    <button class="primary-btn" id="generateStyleGuide">Generate Complete Style Guide 📋</button>
+                    <button class="secondary-btn" id="exportCSS">Export CSS Variables 💾</button>
+                </div>
+            </section>
+
+            <!-- Media Workflow Section -->
+            <section class="content-section" id="media-section">
+                <div class="section-header">
+                    <h2>📸 Media & Assets</h2>
+                    <p>ULM-driven media workflows and asset generation</p>
+                </div>
+
+                <div class="media-upload">
+                    <h3>Image Analysis</h3>
+                    <div class="upload-area" id="imageUpload">
+                        <div class="upload-placeholder">
+                            <span>📸</span>
+                            <p>Drop images here or click to upload</p>
+                            <p class="text-muted">AI will extract colors, suggest layouts, and generate moodboards</p>
+                        </div>
+                        <input type="file" id="imageInput" accept="image/*" multiple hidden>
+                    </div>
+                </div>
+
+                <div class="extracted-assets">
+                    <div class="asset-section">
+                        <h4>Extracted Colors</h4>
+                        <div class="color-swatches" id="extractedColors">
+                            <!-- Colors will be populated by AI analysis -->
+                        </div>
+                    </div>
+
+                    <div class="asset-section">
+                        <h4>Generated CSS Variables</h4>
+                        <textarea id="cssVariables" placeholder="CSS variables will appear here..." readonly></textarea>
+                    </div>
+
+                    <div class="asset-section">
+                        <h4>Moodboard Suggestions</h4>
+                        <div class="moodboard-grid" id="moodboardSuggestions">
+                            <!-- AI-generated moodboard suggestions -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="asset-naming">
+                    <h3>Asset Naming Convention</h3>
+                    <div class="naming-inputs">
+                        <div class="input-group">
+                            <label for="clientName">Client Name</label>
+                            <input type="text" id="clientName" placeholder="darzabi">
+                        </div>
+                        <div class="input-group">
+                            <label for="assetPurpose">Asset Purpose</label>
+                            <input type="text" id="assetPurpose" placeholder="header, card, icon">
+                        </div>
+                    </div>
+                    <div class="naming-preview">
+                        <strong>Generated filename:</strong> 
+                        <code id="filenamePreview">client_asset_purpose_20241220.jpg</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Test Section -->
+            <section class="content-section" id="test-section">
+                <div class="section-header">
+                    <h2>⚡ Quick Test</h2>
+                    <p>Feel how your prompt will work</p>
+                </div>
+
+                <div class="test-workspace">
+                    <div class="prompt-preview">
+                        <h3>Your Prompt</h3>
+                        <div id="promptPreview" class="preview-area">
+                            Your current prompt will appear here...
+                        </div>
+                    </div>
+
+                    <div class="context-injection">
+                        <h3>Test Context</h3>
+                        <textarea id="testContext" placeholder="Add sample code, context, or variables to test with..."></textarea>
+                    </div>
+
+                    <div class="mock-response">
+                        <h3>Expected AI Response</h3>
+                        <textarea id="mockResponse" placeholder="What kind of response are you expecting? Write it here to test your prompt's clarity..."></textarea>
+                    </div>
+                </div>
+
+                <div class="test-actions">
+                    <div class="vibe-check">
+                        <label>Does this prompt feel right?</label>
+                        <div class="vibe-buttons">
+                            <button class="vibe-btn good" id="vibeGood">👍 Yes</button>
+                            <button class="vibe-btn bad" id="vibeBad">👎 Needs work</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Specs Section -->
+            <section class="content-section" id="specs-section">
+                <div class="section-header">
+                    <h2>📋 Technical Specifications</h2>
+                    <p>Generate pixel-perfect UI specs and technical deliverables</p>
+                </div>
+
+                <div class="spec-generator">
+                    <div class="spec-type-selector">
+                        <h3>Select Specification Type</h3>
+                        <div class="spec-types">
+                            <button class="spec-type-btn active" data-type="ui-components">UI Components</button>
+                            <button class="spec-type-btn" data-type="style-guide">Style Guide</button>
+                            <button class="spec-type-btn" data-type="api-spec">API Specification</button>
+                            <button class="spec-type-btn" data-type="accessibility">Accessibility</button>
+                            <button class="spec-type-btn" data-type="responsive">Responsive Layout</button>
+                        </div>
+                    </div>
+
+                    <div class="spec-inputs">
+                        <div class="input-group">
+                            <label for="specContext">Context & Requirements</label>
+                            <textarea id="specContext" placeholder="Describe what you need specified..."></textarea>
+                        </div>
+
+                        <div class="spec-options">
+                            <div class="option-group">
+                                <label>Output Format:</label>
+                                <select id="outputFormat">
+                                    <option value="markdown">Markdown</option>
+                                    <option value="json">JSON</option>
+                                    <option value="jsx">React JSX</option>
+                                    <option value="css">CSS</option>
+                                </select>
+                            </div>
+
+                            <div class="option-group">
+                                <label>Include:</label>
+                                <div class="checkboxes">
+                                    <label><input type="checkbox" id="includeAria" checked> ARIA Roles</label>
+                                    <label><input type="checkbox" id="includeTailwind" checked> Tailwind Classes</label>
+                                    <label><input type="checkbox" id="includeTokens" checked> Design Tokens</label>
+                                    <label><input type="checkbox" id="includeExamples" checked> Code Examples</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spec-actions">
+                        <button class="primary-btn" id="generateSpec">Generate Specification 📋</button>
+                        <button class="secondary-btn" id="validateSpec">Validate Spec ✅</button>
+                    </div>
+                </div>
+
+                <div class="spec-output">
+                    <div class="output-header">
+                        <h3>Generated Specification</h3>
+                        <div class="output-actions">
+                            <button class="icon-btn" id="copySpec" title="Copy to clipboard">📋</button>
+                            <button class="icon-btn" id="downloadSpec" title="Download">📥</button>
+                            <button class="icon-btn" id="shareSpec" title="Share">🔗</button>
+                        </div>
+                    </div>
+                    <div class="spec-content">
+                        <pre id="specResult">Generated specification will appear here...</pre>
+                    </div>
+                </div>
+
+                <div class="spec-validation">
+                    <h3>Validation Results</h3>
+                    <div class="validation-checklist">
+                        <div class="check-item">
+                            <span class="check-icon">⏳</span>
+                            <span>Completeness Check</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-icon">⏳</span>
+                            <span>Accessibility (WCAG) Compliance</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-icon">⏳</span>
+                            <span>Brand Guidelines Adherence</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-icon">⏳</span>
+                            <span>Technical Feasibility</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="version-control">
+                    <h3>Version Control</h3>
+                    <div class="version-info">
+                        <div class="version-current">
+                            <label>Current Version:</label>
+                            <span id="currentVersion">v1.0.0</span>
+                        </div>
+                        <div class="version-actions">
+                            <button class="secondary-btn" id="saveVersion">Save Version 💾</button>
+                            <button class="secondary-btn" id="compareVersions">Compare Versions 🔍</button>
+                        </div>
+                    </div>
+                    <div class="version-history" id="versionHistory">
+                        <!-- Version history will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Iteration Log Section -->
+            <section class="content-section" id="log-section">
+                <div class="section-header">
+                    <h2>🔄 Iteration Log</h2>
+                    <p>Learn from your prompt engineering journey</p>
+                </div>
+
+                <div class="log-content">
+                    <div class="add-entry">
+                        <textarea id="logEntry" placeholder="What did you learn? What worked? What didn't?"></textarea>
+                        <button class="primary-btn" id="addLogEntry">Add Entry 📝</button>
+                    </div>
+
+                    <div class="log-timeline" id="logTimeline">
+                        <!-- Log entries will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

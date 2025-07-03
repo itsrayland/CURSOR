@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Sonnet Max - Software Engineering Best Practices</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .best-practices-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .practices-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .practices-header h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .practice-section {
+            background: white;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .section-header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 25px 30px;
+        }
+        .section-header h2 {
+            color: white;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .section-content {
+            padding: 35px;
+        }
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .practice-card {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-red);
+        }
+        .practice-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        .practice-list {
+            list-style: none;
+            padding: 0;
+        }
+        .practice-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .practice-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+            border-left: 5px solid #17a2b8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border-left: 5px solid #f39c12;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .code-example {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-left: 4px solid var(--accent-red);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="seal">🏛️</div>
+                    <div class="logo-text">
+                        <h1>The White House</h1>
+                        <p>Washington</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="style-guide.html">Style Guide</a></li>
+                        <li><a href="dos-interface.html">DOS Interface</a></li>
+                        <li><a href="company-directory.html">Directory</a></li>
+                        <li><a href="shrink-wrap-methodology.html">Shrink Wrap Methodology</a></li>
+                        <li><a href="#" class="active">Claude Best Practices</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="best-practices-container">
+        <div class="practices-header">
+            <h1>🤖 Claude Sonnet Max</h1>
+            <p style="font-size: 1.3rem; opacity: 0.9;">Software Engineering Best Practices & Guidelines</p>
+            <div style="background: var(--accent-red); color: white; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-top: 15px;">Professional Development Guide</div>
+        </div>
+
+        <!-- Project Setup Section -->
+        <div class="practice-section">
+            <div class="section-header">
+                <h2>🚀 Project Setup & Organization</h2>
+            </div>
+            <div class="section-content">
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>📁 File Structure</h4>
+                        <ul class="practice-list">
+                            <li>Organize code into logical modules and directories</li>
+                            <li>Use consistent naming conventions across the project</li>
+                            <li>Separate concerns (models, views, controllers, utils)</li>
+                            <li>Keep configuration files in dedicated folders</li>
+                            <li>Maintain clean separation between source and build files</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🔧 Development Environment</h4>
+                        <ul class="practice-list">
+                            <li>Set up consistent development environments across team</li>
+                            <li>Use package managers (npm, pip, maven) effectively</li>
+                            <li>Configure linters and formatters (ESLint, Prettier, Black)</li>
+                            <li>Implement pre-commit hooks for code quality</li>
+                            <li>Use dependency management tools and lock files</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>📝 Initial Setup</h4>
+                        <ul class="practice-list">
+                            <li>Create comprehensive README with setup instructions</li>
+                            <li>Include architecture diagrams and project overview</li>
+                            <li>Set up CI/CD pipelines early in development</li>
+                            <li>Configure environment variables and secrets management</li>
+                            <li>Establish coding standards and style guides</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🔄 Version Control</h4>
+                        <ul class="practice-list">
+                            <li>Use meaningful commit messages with clear descriptions</li>
+                            <li>Implement branching strategy (GitFlow, GitHub Flow)</li>
+                            <li>Keep commits small and focused on single changes</li>
+                            <li>Use pull request templates and review processes</li>
+                            <li>Tag releases and maintain changelog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prompting Strategies Section -->
+        <div class="practice-section">
+            <div class="section-header">
+                <h2>💭 Effective Prompting Strategies</h2>
+            </div>
+            <div class="section-content">
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>🎯 Clear Context</h4>
+                        <ul class="practice-list">
+                            <li>Provide specific project context and requirements</li>
+                            <li>Include relevant code snippets and current state</li>
+                            <li>Specify target programming language and frameworks</li>
+                            <li>Mention constraints (performance, security, compatibility)</li>
+                            <li>Define expected input/output formats clearly</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>📊 Structured Requests</h4>
+                        <ul class="practice-list">
+                            <li>Break complex problems into smaller, manageable tasks</li>
+                            <li>Use numbered lists for multi-step requirements</li>
+                            <li>Specify desired code style and patterns</li>
+                            <li>Request explanations along with code solutions</li>
+                            <li>Ask for alternative approaches when applicable</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🔍 Review Requests</h4>
+                        <ul class="practice-list">
+                            <li>Ask Claude to review code for bugs and improvements</li>
+                            <li>Request security vulnerability assessments</li>
+                            <li>Seek performance optimization suggestions</li>
+                            <li>Get feedback on code architecture and design patterns</li>
+                            <li>Ask for test case recommendations</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>💡 Learning Approach</h4>
+                        <ul class="practice-list">
+                            <li>Ask for explanations of complex concepts</li>
+                            <li>Request step-by-step problem-solving guidance</li>
+                            <li>Seek best practices for specific technologies</li>
+                            <li>Get recommendations for tools and libraries</li>
+                            <li>Ask about industry standards and conventions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-example">
+// Example of effective prompting
+Prompt: "I'm building a Node.js REST API with Express and MongoDB.
+I need help implementing user authentication with JWT tokens.
+Requirements:
+1. User registration with email validation
+2. Secure password hashing
+3. JWT token generation and validation
+4. Protected route middleware
+5. Token refresh mechanism
+
+Please provide the implementation with error handling,
+security best practices, and explain the key concepts."
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Pro Tip</h4>
+                    <p>Always provide context about your project's existing architecture, dependencies, and constraints. This helps Claude give more relevant and implementable solutions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Review Section -->
+        <div class="practice-section">
+            <div class="section-header">
+                <h2>🔍 Code Review & Quality Assurance</h2>
+            </div>
+            <div class="section-content">
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>🛡️ Quality Checks</h4>
+                        <ul class="practice-list">
+                            <li>Review code for adherence to SOLID principles</li>
+                            <li>Check for proper error handling and edge cases</li>
+                            <li>Validate input sanitization and output encoding</li>
+                            <li>Ensure consistent coding style and naming conventions</li>
+                            <li>Verify proper resource management and cleanup</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>⚡ Performance Review</h4>
+                        <ul class="practice-list">
+                            <li>Identify potential bottlenecks and optimization opportunities</li>
+                            <li>Review database query efficiency and indexing</li>
+                            <li>Check for unnecessary loops and redundant operations</li>
+                            <li>Validate memory usage and garbage collection impact</li>
+                            <li>Assess algorithm complexity and scalability</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🔒 Security Review</h4>
+                        <ul class="practice-list">
+                            <li>Check for SQL injection and XSS vulnerabilities</li>
+                            <li>Validate authentication and authorization logic</li>
+                            <li>Review data encryption and secure communication</li>
+                            <li>Ensure proper secrets management</li>
+                            <li>Check for information disclosure and logging security</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🧪 Testability</h4>
+                        <ul class="practice-list">
+                            <li>Ensure code is modular and easily testable</li>
+                            <li>Check for proper dependency injection</li>
+                            <li>Validate mock-friendly interfaces and abstractions</li>
+                            <li>Review test coverage and test quality</li>
+                            <li>Ensure integration test scenarios are covered</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Common Review Issues</h4>
+                    <p>Watch out for hardcoded values, missing error handling, inadequate validation, poor separation of concerns, and insufficient logging. These are the most common issues that slip through initial development.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Debugging Section -->
+        <div class="practice-section">
+            <div class="section-header">
+                <h2>🐛 Debugging & Testing Strategies</h2>
+            </div>
+            <div class="section-content">
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>🔎 Debugging Approach</h4>
+                        <ul class="practice-list">
+                            <li>Use systematic debugging methodology</li>
+                            <li>Implement comprehensive logging at key points</li>
+                            <li>Use debugger tools effectively (breakpoints, watch variables)</li>
+                            <li>Create reproducible test cases for bugs</li>
+                            <li>Document debugging steps and solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🧪 Testing Strategy</h4>
+                        <ul class="practice-list">
+                            <li>Write unit tests for core business logic</li>
+                            <li>Implement integration tests for API endpoints</li>
+                            <li>Create end-to-end tests for critical user flows</li>
+                            <li>Use test-driven development (TDD) when appropriate</li>
+                            <li>Maintain test coverage above 80% for critical code</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>📊 Monitoring</h4>
+                        <ul class="practice-list">
+                            <li>Implement application performance monitoring (APM)</li>
+                            <li>Set up error tracking and alerting systems</li>
+                            <li>Monitor key business metrics and KPIs</li>
+                            <li>Create dashboards for system health</li>
+                            <li>Implement distributed tracing for microservices</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🔧 Problem Solving</h4>
+                        <ul class="practice-list">
+                            <li>Use the "5 Whys" technique for root cause analysis</li>
+                            <li>Implement feature flags for safer deployments</li>
+                            <li>Create rollback strategies for failed deployments</li>
+                            <li>Use canary deployments for gradual releases</li>
+                            <li>Maintain detailed incident response procedures</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-example">
+// Example debugging approach with Claude
+Prompt: "I'm getting a 'Cannot read property of undefined' error in my React component.
+Here's the problematic code: [paste code]
+
+The error occurs when: [describe scenario]
+Expected behavior: [describe what should happen]
+Current state: [provide relevant data/state]
+
+Can you help me identify the root cause and provide a robust solution
+with proper error handling?"
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Section -->
+        <div class="practice-section">
+            <div class="section-header">
+                <h2>🔒 Security & Best Practices</h2>
+            </div>
+            <div class="section-content">
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>🛡️ Secure Coding</h4>
+                        <ul class="practice-list">
+                            <li>Validate and sanitize all user inputs</li>
+                            <li>Use parameterized queries to prevent SQL injection</li>
+                            <li>Implement proper authentication and authorization</li>
+                            <li>Use HTTPS for all communications</li>
+                            <li>Store passwords using strong hashing algorithms</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🔐 Data Protection</h4>
+                        <ul class="practice-list">
+                            <li>Encrypt sensitive data at rest and in transit</li>
+                            <li>Implement proper session management</li>
+                            <li>Use environment variables for secrets</li>
+                            <li>Implement data anonymization and pseudonymization</li>
+                            <li>Follow GDPR and privacy regulations</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>⚡ Infrastructure Security</h4>
+                        <ul class="practice-list">
+                            <li>Keep dependencies and frameworks updated</li>
+                            <li>Use security scanning tools in CI/CD</li>
+                            <li>Implement proper network segmentation</li>
+                            <li>Use least privilege access principles</li>
+                            <li>Monitor for security vulnerabilities</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>📊 Security Monitoring</h4>
+                        <ul class="practice-list">
+                            <li>Log security events and access attempts</li>
+                            <li>Implement rate limiting and DDoS protection</li>
+                            <li>Set up intrusion detection systems</li>
+                            <li>Conduct regular security audits</li>
+                            <li>Create incident response plans</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Security Reminder</h4>
+                    <p>Never commit secrets, API keys, or passwords to version control. Use environment variables, secret management systems, and conduct regular security reviews of your codebase.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Linting & Quality Section -->
+        <div class="practice-section">
+            <div class="section-header">
+                <h2>🔧 Code Linting & Quality Control</h2>
+            </div>
+            <div class="section-content">
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>🎯 What is Linting</h4>
+                        <ul class="practice-list">
+                            <li>Analyze code for potential errors, bugs, and style issues</li>
+                            <li>Enforce consistent coding standards across teams</li>
+                            <li>Identify suspicious constructs and anti-patterns</li>
+                            <li>Catch syntax errors before runtime execution</li>
+                            <li>Improve code readability and maintainability</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🛠️ Essential Linters by Language</h4>
+                        <ul class="practice-list">
+                            <li>JavaScript/TypeScript: ESLint, Prettier, TSLint</li>
+                            <li>Python: pylint, flake8, black, mypy, bandit</li>
+                            <li>CSS/SCSS: stylelint, csslint, sass-lint</li>
+                            <li>HTML: HTMLHint, html-validate, bootlint</li>
+                            <li>Java: CheckStyle, SpotBugs, PMD, SonarLint</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>⚙️ Configuration Setup</h4>
+                        <ul class="practice-list">
+                            <li>Create project-specific linting configuration files</li>
+                            <li>Use shared configs (Airbnb, Google, Standard)</li>
+                            <li>Configure rules for your team's coding standards</li>
+                            <li>Set up IDE integration for real-time feedback</li>
+                            <li>Customize severity levels (error, warning, info)</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🔄 Integration Best Practices</h4>
+                        <ul class="practice-list">
+                            <li>Integrate linters into CI/CD pipelines</li>
+                            <li>Set up pre-commit hooks for automatic checks</li>
+                            <li>Configure editor plugins for instant feedback</li>
+                            <li>Use lint-staged for efficient staged file checking</li>
+                            <li>Implement auto-fix capabilities where safe</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-example">
+// Example ESLint configuration (.eslintrc.js)
+module.exports = {
+  extends: ['eslint:recommended', '@typescript-eslint/recommended'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'react-hooks'],
+  rules: {
+    'no-unused-vars': 'error',
+    'no-console': 'warn',
+    'prefer-const': 'error',
+    'react-hooks/rules-of-hooks': 'error',
+    '@typescript-eslint/no-explicit-any': 'warn'
+  },
+  env: {
+    browser: true,
+    node: true,
+    es6: true
+  }
+};
+
+// Example package.json scripts
+{
+  "scripts": {
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint src --ext .ts,.tsx,.js,.jsx --fix",
+    "lint:staged": "lint-staged"
+  }
+}
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Linting Pro Tips</h4>
+                    <p>Start with recommended rule sets and gradually customize. Use --fix flags for automatic corrections, but always review changes. Set up different rule sets for different file types (tests, config files, etc.).</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Common Linting Mistakes</h4>
+                    <p>Don't ignore all warnings - they often indicate real issues. Avoid overly strict rules that slow development. Always test auto-fix changes before committing. Keep linter configs in version control.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI-Enhanced Development Lifecycle Section -->
+        <div class="practice-section">
+            <div class="section-header">
+                <h2>🤖 AI-Enhanced Development Lifecycle (Vibe Coders Approach)</h2>
+            </div>
+            <div class="section-content">
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>🎯 Problem Definition First</h4>
+                        <ul class="practice-list">
+                            <li>Identify real user problems before writing code</li>
+                            <li>Use "The Mom Test" approach for user interviews</li>
+                            <li>Build products for problems you deeply understand</li>
+                            <li>Avoid cycling back and forth with unclear requirements</li>
+                            <li>Document problem statements with clear success metrics</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>📋 Quality Planning = Quality Outputs</h4>
+                        <ul class="practice-list">
+                            <li>Garbage in, garbage out - detailed inputs get better AI results</li>
+                            <li>AI output quality degrades quickly over multiple turns</li>
+                            <li>Invest time in upfront planning and requirements</li>
+                            <li>Create comprehensive product requirements documents (PRDs)</li>
+                            <li>Define user stories with clear acceptance criteria</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🏗️ Systems Architecture Thinking</h4>
+                        <ul class="practice-list">
+                            <li>Design data flow architecture before coding</li>
+                            <li>Map out process flows and component integration</li>
+                            <li>Create architecture decision records (ADRs)</li>
+                            <li>Use tools like Eraser.io for system diagramming</li>
+                            <li>Plan database schema and API design upfront</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🎨 Design Before Development</h4>
+                        <ul class="practice-list">
+                            <li>Don't skip UI/UX design and prototyping</li>
+                            <li>Learn Figma basics - study award-winning app designs</li>
+                            <li>Understand spacing, shadows, and responsive design</li>
+                            <li>Reduce friction and solve problems as fast as possible</li>
+                            <li>Create interactive prototypes before coding</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>🔄 Just-in-Time Learning</h4>
+                        <ul class="practice-list">
+                            <li>Learn what you need based on what you're building</li>
+                            <li>Grade yourself 1-10 on each skill area</li>
+                            <li>Spend 20 minutes daily improving weak areas</li>
+                            <li>Use Pareto principle (80/20) for skill prioritization</li>
+                            <li>Practice with real projects, not just tutorials</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>⚡ Core Premium Skills</h4>
+                        <ul class="practice-list">
+                            <li>Systems thinking and architecture design</li>
+                            <li>Pattern matching across different domains</li>
+                            <li>Creative problem solving and debugging</li>
+                            <li>Ideation and requirement gathering</li>
+                            <li>Component integration and data flow design</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🏭 Process Flow Mapping</h4>
+                        <ul class="practice-list">
+                            <li>Document your manual processes first</li>
+                            <li>Identify which steps need to exist vs. which don't</li>
+                            <li>Business process drives technical data flow</li>
+                            <li>Define your "11-star Taj Mahal" ideal state</li>
+                            <li>Automate grunt work, enhance creative work</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🧪 Comprehensive QA Strategy</h4>
+                        <ul class="practice-list">
+                            <li>Map QA processes to AI agents or workflows</li>
+                            <li>Create folders of good examples for training</li>
+                            <li>Build automated testing into development process</li>
+                            <li>Don't skip DevOps and CI/CD setup</li>
+                            <li>Plan for performance optimization from day one</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-example">
+// Vibe Coders SDLC Phases
+1. Problem Definition
+   - User interviews and problem validation
+   - Clear problem statements with success metrics
+
+2. Product Requirements & User Stories  
+   - Detailed PRDs with acceptance criteria
+   - User story mapping and prioritization
+
+3. UI/UX Design & Prototyping
+   - Wireframes and interactive prototypes
+   - Design system and component library
+
+4. Technical Architecture & System Design
+   - Data flow diagrams and API design
+   - Database schema and component integration
+
+5. Development & Implementation
+   - Backend API development
+   - Frontend implementation with design system
+
+6. Quality Assurance & Testing
+   - Automated testing and manual QA
+   - Performance and security testing
+
+7. DevOps & Deployment
+   - CI/CD pipelines and infrastructure
+   - Monitoring and error tracking
+
+8. Documentation & Knowledge Management
+   - Technical documentation and runbooks
+   - User guides and troubleshooting
+
+9. User Feedback & Iteration
+   - Analytics and user feedback collection
+   - Continuous improvement and updates
+                </div>
+
+                <div class="best-practice-box">
+                    <h4>🎯 Solo Founder Priority Matrix</h4>
+                    <p>For solo founders and small teams, prioritize: 1) Problem Definition, 2) Product Requirements, 3) UI/UX Design, 4) Technical Architecture, 5) Backend Development, 6) Quality Assurance, 7) DevOps basics. Skip complex infrastructure early - focus on validation and core functionality first.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Common SDLC Mistakes</h4>
+                    <p>Don't jump straight to coding without planning. Don't skip the design phase and try to "prompt your way around it." Don't ignore DevOps until it's too late. Don't build for scale before proving product-market fit. Quality planning prevents quality problems.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documentation Section -->
+        <div class="practice-section">
+            <div class="section-header">
+                <h2>📚 Documentation & Comments</h2>
+            </div>
+            <div class="section-content">
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>📝 Code Documentation</h4>
+                        <ul class="practice-list">
+                            <li>Write clear, concise comments explaining "why" not "what"</li>
+                            <li>Use JSDoc, Sphinx, or similar tools for API documentation</li>
+                            <li>Document complex algorithms and business logic</li>
+                            <li>Keep comments up-to-date with code changes</li>
+                            <li>Use consistent documentation formatting</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>📖 Project Documentation</h4>
+                        <ul class="practice-list">
+                            <li>Maintain comprehensive README with setup instructions</li>
+                            <li>Create architecture diagrams and flow charts</li>
+                            <li>Document API endpoints with examples</li>
+                            <li>Provide troubleshooting guides and FAQs</li>
+                            <li>Keep deployment and operational runbooks updated</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🎓 Knowledge Sharing</h4>
+                        <ul class="practice-list">
+                            <li>Create technical decision records (ADRs)</li>
+                            <li>Document lessons learned and best practices</li>
+                            <li>Maintain coding guidelines and style guides</li>
+                            <li>Share knowledge through team wikis or blogs</li>
+                            <li>Conduct code review sessions and knowledge transfers</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-card">
+                        <h4>🔄 Living Documentation</h4>
+                        <ul class="practice-list">
+                            <li>Use automated tools to generate documentation</li>
+                            <li>Integrate documentation into CI/CD pipeline</li>
+                            <li>Version documentation alongside code</li>
+                            <li>Regularly review and update documentation</li>
+                            <li>Make documentation searchable and accessible</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Documentation Tip</h4>
+                    <p>Ask Claude to help generate comprehensive documentation from your code. It can create API docs, README sections, and even explain complex code sections in plain English.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Claude Sonnet Max</h4>
+                    <p>Advanced AI assistant for professional software development and engineering excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="style-guide.html">Style Guide</a></li>
+                        <li><a href="dos-interface.html">DOS Interface</a></li>
+                        <li><a href="company-directory.html">Directory</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Best Practices</h4>
+                    <ul>
+                        <li><a href="#project-setup">Project Setup</a></li>
+                        <li><a href="#prompting">Prompting</a></li>
+                        <li><a href="#code-review">Code Review</a></li>
+                        <li><a href="#security">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Claude Sonnet Max Best Practices. Professional Development Guide.</p>
+                <a href="index.html">← Back to Main Site</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
