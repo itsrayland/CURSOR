@@ -1,177 +1,199 @@
-# Enhanced Cursor Background Agent Prompt: Prompt Engineering Workstation
+# Enhanced Cursor Background Agent Prompt: Vibe Coder's Prompt Engineering Workstation
 
 ## Task Overview
-Build a complete, professional prompt engineering workstation interface that serves as a comprehensive workspace for creating, managing, testing, and optimizing AI prompts. This should be a single-page application with modern UX/UI that leverages existing internal CSS styling.
+Build a simple, intuitive prompt engineering workstation that guides developers through the actual process of crafting prompts for coding tasks. Think like a prompt engineer who codes by vibes - focus on the flow, the feel, and the iterative process of getting AI to write better code. This should be a single-page vanilla JavaScript application optimized for iPad use.
 
-## Core Requirements
+## Core Workflow-Driven Interface
 
-### 1. Main Interface Structure
-Create a responsive, tabbed interface with the following sections:
-- **Prompt Builder** - Main workspace for creating and editing prompts
-- **Template Library** - Storage and management of prompt templates
-- **Testing Lab** - Environment for testing prompts with different scenarios
-- **Analytics Dashboard** - Performance metrics and optimization insights
-- **Settings & Config** - User preferences and system configuration
+### 1. The Coding Journey Interface
+Create a simple, guided workflow with these main areas:
+- **🎯 Goal Setter** - "What are you trying to build?" (simple input)
+- **🧠 Prompt Crafter** - The main workspace for writing and refining prompts
+- **⚡ Quick Test** - One-click testing area to see how prompts feel
+- **📚 Vibe Library** - Collection of prompts that "just work"
+- **🔄 Iteration Log** - Track what worked and what didn't
 
-### 2. Prompt Builder Features
-- **Rich Text Editor** with syntax highlighting for prompt structure
-- **Variable Insertion System** - Easy insertion of placeholders like `{user_input}`, `{context}`, `{role}`
-- **Prompt Structure Templates** - Pre-built frameworks (instruction, few-shot, chain-of-thought, etc.)
-- **Real-time Character/Token Counter** - Track prompt length and estimated costs
-- **Version History** - Track changes and iterations of prompts
-- **Import/Export Functions** - JSON, YAML, plain text formats
-- **Collaborative Notes Section** - Comments and documentation
+### 2. 🧠 Prompt Crafter (The Main Vibe Space)
+- **Clean Text Area** - Simple, distraction-free writing space (textarea with good styling)
+- **Prompt Recipe Buttons** - One-click insertion of common patterns:
+  - "You are a [ROLE]..." starter
+  - "Here's the context: [CONTEXT]" 
+  - "Step by step:" for complex tasks
+  - "Examples:" for few-shot prompting
+- **Live Character Count** - Simple counter, no overwhelming metrics
+- **Feeling Tracker** - Rate how you feel about the current prompt (1-5 vibes)
+- **Quick Save** - Auto-save as you type, manual save for good versions
 
-### 3. Template Library System
-- **Categorized Template Storage** - Organize by use case (coding, writing, analysis, etc.)
-- **Search and Filter Functionality** - Quick template discovery
-- **Template Preview Cards** - Visual representation with descriptions
-- **Custom Template Creation** - Save current prompts as reusable templates
-- **Template Rating System** - Community-style rating for effectiveness
-- **Tag-based Organization** - Multiple tags per template for better categorization
+### 3. 📚 Vibe Library (Prompts That Just Work)
+- **Simple Cards** - Each prompt as a card with title and preview
+- **Copy & Tweak** - One-click copy to crafter with easy modification
+- **Vibe Tags** - Simple tags like "debugging", "refactoring", "new feature"
+- **Success Stories** - Notes on when/why each prompt worked well
+- **Quick Search** - Simple text search, no complex filters
 
-### 4. Testing Lab Environment
-- **Multiple Test Scenarios** - Run the same prompt with different inputs
-- **A/B Testing Interface** - Compare different prompt versions side-by-side
-- **Response Quality Metrics** - Rate outputs on relevance, accuracy, creativity
-- **Test History Tracking** - Log all test runs with timestamps and results
-- **Batch Testing** - Run multiple test cases automatically
-- **Mock AI Response Generator** - Simulate responses for development/testing
+### 4. ⚡ Quick Test (Feel the Prompt)
+- **Mock Response Area** - Simulate what AI might respond with
+- **Prompt Preview** - See your prompt formatted nicely
+- **Context Injection** - Quick way to add sample code/context for testing
+- **Vibe Check** - Does this prompt feel right? Quick yes/no
 
-### 5. Analytics & Optimization
-- **Performance Dashboard** - Success rates, average response quality, usage patterns
-- **Prompt Effectiveness Metrics** - Track which prompts perform best
-- **Token Usage Analytics** - Cost tracking and optimization suggestions
-- **Response Time Tracking** - Monitor performance bottlenecks
-- **Usage Heatmaps** - Visual representation of most-used features
-- **Optimization Recommendations** - AI-powered suggestions for prompt improvements
+### 5. 🔄 Iteration Log (Learn From the Journey)
+- **Simple Timeline** - What you tried, what worked, what didn't  
+- **Before/After Comparisons** - See how prompts evolved
+- **Lessons Learned** - Quick notes on insights
+- **Pattern Recognition** - Notice what makes prompts work for you
 
-### 6. Advanced Features
-- **Prompt Chaining Interface** - Visual workflow builder for multi-step prompts
-- **Context Management** - Organize and inject relevant context automatically
-- **Role-based Prompt Templates** - Different personas and expert roles
-- **Integration Hooks** - API endpoints for external tool integration
-- **Backup & Sync** - Cloud storage integration for data persistence
-- **Export to Various Formats** - API calls, documentation, training data
+### 6. 🎯 Goal Setter (Start With Intent)
+- **Project Context** - What are you building? (simple text input)
+- **Current Challenge** - What specific problem needs solving?
+- **Desired Outcome** - What should the AI help you achieve?
+- **Constraint Notes** - Any limitations or requirements
 
-## Technical Implementation Details
+## Technical Implementation (Vanilla JS + iPad Optimized)
 
-### Frontend Architecture
-- Use **HTML5, CSS3, and Vanilla JavaScript** or preferred framework
-- Implement **CSS Grid and Flexbox** for responsive layouts
-- Utilize **existing internal CSS classes and design system**
-- Ensure **mobile-responsive design** with breakpoints
-- Add **keyboard shortcuts** for power users
-- Implement **dark/light theme toggle**
+### Core Tech Stack
+- **Pure HTML5, CSS3, and Vanilla JavaScript** - No frameworks, keep it simple
+- **CSS Grid and Flexbox** for responsive iPad layouts
+- **Touch-friendly interface** - Large touch targets, swipe gestures
+- **Existing internal CSS** - Leverage what's already available
+- **localStorage** for persistence - Simple key-value storage
 
-### Data Storage
-- **LocalStorage** for client-side persistence
-- **IndexedDB** for larger datasets (templates, history)
-- **JSON Schema** for data structure validation
-- **Export/Import** functionality for data portability
+### iPad-First Design
+- **Large touch targets** (minimum 44px)
+- **Swipe navigation** between sections
+- **Virtual keyboard friendly** - inputs don't get covered
+- **Portrait/landscape adaptive** layouts
+- **No hover states** - everything should work with touch
+- **Pull-to-refresh** for data sync
 
-### User Experience
-- **Intuitive Navigation** - Clear visual hierarchy and information architecture
-- **Progressive Disclosure** - Show advanced features only when needed
-- **Contextual Help** - Tooltips, guided tours, inline documentation
-- **Keyboard Accessibility** - Full keyboard navigation support
-- **Loading States** - Smooth transitions and progress indicators
-- **Error Handling** - Clear error messages with recovery suggestions
-
-## Example Templates to Include
-
-### 1. Code Review Assistant
-```
-You are an expert code reviewer with 10+ years of experience. 
-
-**Context**: {code_snippet}
-**Language**: {programming_language}
-**Focus Areas**: {review_focus}
-
-Please provide a thorough code review covering:
-1. Code quality and best practices
-2. Potential bugs or security issues
-3. Performance optimizations
-4. Readability and maintainability suggestions
-
-Format your response with clear sections and actionable recommendations.
+### Simple Data Structure
+```javascript
+{
+  currentPrompt: "string",
+  vibeLibrary: [{id, title, prompt, tags, vibeRating, notes}],
+  iterationLog: [{timestamp, prompt, outcome, lessons}],
+  projectContext: "string",
+  settings: {theme: "light|dark"}
+}
 ```
 
-### 2. Technical Documentation Writer
+### User Experience Focus
+- **One-hand operation** - Everything reachable with thumb
+- **Immediate feedback** - Visual responses to all interactions  
+- **Gentle guidance** - Subtle hints, not overwhelming
+- **Smooth animations** - CSS transitions for polish
+- **Offline-first** - Works without internet
+
+## Starter Vibe Prompts to Include
+
+### 1. Debug This Mess 🐛
 ```
-You are a technical writer specializing in clear, comprehensive documentation.
+I'm stuck on this code and it's not working as expected.
 
-**Topic**: {documentation_topic}
-**Audience**: {target_audience}
-**Complexity Level**: {complexity_level}
+Here's what I'm trying to do: [GOAL]
+Here's the code: [CODE]
+Here's what's happening: [ISSUE]
 
-Create detailed documentation that includes:
-- Overview and purpose
-- Step-by-step instructions
-- Code examples (if applicable)
-- Troubleshooting section
-- Additional resources
-
-Use clear headings, bullet points, and maintain a professional yet approachable tone.
-```
-
-### 3. Creative Problem Solver
-```
-You are a creative problem-solving consultant with expertise in design thinking.
-
-**Challenge**: {problem_description}
-**Constraints**: {limitations}
-**Success Criteria**: {desired_outcomes}
-
-Apply creative problem-solving methodologies:
-1. Reframe the problem from multiple perspectives
-2. Generate diverse solution approaches
-3. Evaluate feasibility and impact
-4. Recommend the top 3 solutions with implementation steps
-
-Think outside the box while maintaining practical viability.
+Please help me figure out what's wrong and suggest a fix. Explain it like you're pair programming with me.
 ```
 
-## Implementation Steps
+### 2. Build This Feature ⚡
+``` 
+I need to build [FEATURE_NAME] for my project.
 
-### Phase 1: Core Structure (Priority 1)
-1. Set up the main HTML structure with tabbed navigation
-2. Implement the Prompt Builder with basic text editing
-3. Create the Template Library with CRUD operations
-4. Add basic styling using internal CSS classes
+Context: [PROJECT_DESCRIPTION]
+Requirements: [WHAT_IT_NEEDS_TO_DO]
+Tech stack: [TECHNOLOGIES]
 
-### Phase 2: Enhanced Features (Priority 2)
-1. Add the Testing Lab with scenario management
-2. Implement version history and change tracking
-3. Create the Analytics Dashboard with basic metrics
-4. Add import/export functionality
+Walk me through how to implement this step by step. Give me working code I can copy and paste.
+```
 
-### Phase 3: Advanced Features (Priority 3)
-1. Implement prompt chaining interface
-2. Add advanced analytics and optimization features
-3. Create integration hooks and API endpoints
-4. Enhance with AI-powered suggestions
+### 3. Refactor & Clean Up 🧹
+```
+This code works but it's messy and I want to make it better.
 
-### Phase 4: Polish & Optimization (Priority 4)
-1. Optimize performance and add loading states
-2. Enhance accessibility features
-3. Add comprehensive help documentation
-4. Implement advanced keyboard shortcuts
+Current code: [CODE_BLOCK]
+What bothers me: [ISSUES]
+Goal: [DESIRED_OUTCOME]
 
-## Success Criteria
-- **Intuitive Interface**: New users can create their first prompt within 2 minutes
-- **Comprehensive Functionality**: Covers the full prompt engineering lifecycle
-- **Performance**: Fast loading and responsive interactions
-- **Data Integrity**: Reliable save/load operations with error recovery
-- **Scalability**: Can handle hundreds of templates and prompt variations
-- **Professional Quality**: Production-ready interface suitable for enterprise use
+Help me refactor this to be cleaner, more readable, and follow best practices. Show me before/after.
+```
 
-## Additional Considerations
-- Ensure all data is stored locally for privacy
-- Make the interface highly customizable for different workflows
-- Include comprehensive keyboard shortcuts for efficiency
-- Design for both individual use and team collaboration
-- Consider future integration with AI APIs for live testing
-- Plan for eventual features like prompt marketplace and sharing
+### 4. Learn This Concept 🎓
+```
+I'm trying to understand [CONCEPT/TECHNOLOGY] and how to use it in my project.
 
-Build this as a complete, production-ready application that serves as the definitive tool for prompt engineering workflows. Focus on creating an interface that is both powerful for experts and approachable for beginners.
+My current level: [BEGINNER/INTERMEDIATE/ADVANCED]
+What I want to build: [PROJECT_CONTEXT]
+Specific questions: [QUESTIONS]
+
+Explain this to me with practical examples I can actually use.
+```
+
+### 5. Fix My Approach 🎯
+```
+I'm building [WHAT] but I think I'm approaching it wrong.
+
+What I'm doing now: [CURRENT_APPROACH]
+Problems I'm running into: [ISSUES]
+What success looks like: [GOAL]
+
+Suggest a better way to approach this problem. Be honest if I need to start over.
+```
+
+## Build It Step by Step (Vibe-Driven Approach)
+
+### Start Simple - Get Something Working
+1. **Basic HTML Structure** - Single page, simple layout
+2. **Goal Setter Section** - Just a text input asking "What are you building?"
+3. **Main Prompt Area** - Large textarea for writing prompts
+4. **Save Button** - Store to localStorage, that's it
+5. **Test with real prompts** - Make sure the basic flow feels good
+
+### Add the Essentials - Make It Useful  
+1. **Vibe Library** - Simple cards showing saved prompts
+2. **Copy to Edit** - Click a card to copy prompt to main area
+3. **Basic Prompt Recipes** - Buttons to insert common patterns
+4. **Character counter** - Simple count display
+5. **Test the workflow** - Can you actually use this to craft prompts?
+
+### Polish the Feel - Make It Nice
+1. **iPad touch optimization** - Bigger buttons, better spacing
+2. **Smooth animations** - CSS transitions for interactions  
+3. **Iteration log** - Track what you tried and what worked
+4. **Quick Test area** - Preview how prompts will look
+5. **Test on actual iPad** - Make sure it feels right
+
+### Make It Yours - Customize and Perfect
+1. **Vibe rating system** - Rate prompts 1-5 on how they feel
+2. **Simple search** - Find prompts in your library
+3. **Export/share** - Copy prompts to clipboard
+4. **Lessons learned** - Note insights from each iteration
+5. **Use it for real projects** - Dogfood your own tool
+
+## Vibe Check - How You Know It's Working
+
+- **Feels Natural**: You reach for this tool when you need to craft a prompt
+- **Flows Smoothly**: Going from idea → prompt → test → refine feels effortless 
+- **Actually Gets Used**: You find yourself using it for real projects, not just demos
+- **Sparks Joy**: The interface doesn't get in your way, it helps you think
+- **Works on iPad**: Feels native, not like a desktop app squeezed onto mobile
+- **Saves Time**: You're crafting better prompts faster than before
+
+## The Vibe Coder Mindset
+
+Remember you're building for developers who:
+- **Code by feel** - They know when something "clicks"
+- **Iterate quickly** - Try something, see if it works, adjust
+- **Value simplicity** - Fancy features are useless if the basics don't work
+- **Work hands-on** - They want to touch and tweak, not analyze dashboards
+- **Learn by doing** - Examples and templates beat documentation
+- **Trust their gut** - If it feels right, it probably is
+
+## Final Thoughts
+
+Build something you'd actually want to use when you're stuck at 2am trying to get an AI to understand what you want. Make it feel like a trusty sidekick, not a complex enterprise tool. 
+
+The best prompt engineering happens when the tool gets out of your way and lets you focus on the craft of writing prompts that just work.
+
+Keep it simple. Make it useful. Trust the vibe.
