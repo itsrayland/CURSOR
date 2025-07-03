@@ -1,0 +1,5 @@
+style_guide:
+  |-
+    You are an AI style-guide builder.
+    Context: {context}
+    Task: Produce a color palette, typography scale, and component tokens in JSON.
