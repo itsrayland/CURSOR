@@ -197,6 +197,13 @@
                 <p class="font-bold">Centered content with padding</p>
             </div>
         </div>
+
+        <!-- Timeline Visualization Demo -->
+        <div class="demo-section">
+            <h2>Timeline Visualization</h2>
+            <p>A dynamic timeline with running time and project/task rows. The red line shows the current time:</p>
+            <div id="timelineDemo" style="margin-top: 1rem;"></div>
+        </div>
     </div>
 
     <!-- Theme Toggle Button -->
@@ -213,6 +220,7 @@
     <script type="module">
         import StyleCoordinator, { styleCoordinator } from '../src/styles/StyleCoordinator.js';
         import { styleConfig } from '../src/styles/config.js';
+        import TimelineVisualization from '../src/styles/TimelineVisualization.js';
 
         // Add custom themes to the coordinator
         Object.entries(styleConfig.customThemes).forEach(([name, theme]) => {
@@ -332,6 +340,139 @@
 
         console.log('Style Coordinator Demo initialized!');
         console.log('Current theme info:', styleCoordinator.getCurrentThemeInfo());
+
+        // Initialize Timeline Visualization Demo
+        function initializeTimelineDemo() {
+            const now = new Date();
+            const timelineData = {
+                timeScale: 'minutes',
+                timeSpan: 120, // Show 2 hours
+                items: [
+                    {
+                        id: 'project-alpha',
+                        name: '🚀 Project Alpha',
+                        events: [
+                            {
+                                title: 'Planning Phase',
+                                type: 'task',
+                                startTime: new Date(now.getTime() - 45 * 60000), // 45 minutes ago
+                                endTime: new Date(now.getTime() - 15 * 60000) // 15 minutes ago
+                            },
+                            {
+                                title: 'Development Start',
+                                type: 'milestone',
+                                startTime: new Date(now.getTime() - 15 * 60000) // 15 minutes ago
+                            },
+                            {
+                                title: 'Feature Implementation',
+                                type: 'task',
+                                startTime: new Date(now.getTime() - 10 * 60000), // 10 minutes ago
+                                endTime: new Date(now.getTime() + 30 * 60000) // 30 minutes from now
+                            },
+                            {
+                                title: 'Demo Deadline',
+                                type: 'deadline',
+                                startTime: new Date(now.getTime() + 60 * 60000) // 1 hour from now
+                            }
+                        ]
+                    },
+                    {
+                        id: 'team-meetings',
+                        name: '👥 Team Meetings',
+                        events: [
+                            {
+                                title: 'Daily Standup',
+                                type: 'meeting',
+                                startTime: new Date(now.getTime() - 30 * 60000), // 30 minutes ago
+                                endTime: new Date(now.getTime() - 15 * 60000) // 15 minutes ago
+                            },
+                            {
+                                title: 'Sprint Review',
+                                type: 'meeting',
+                                startTime: new Date(now.getTime() + 45 * 60000), // 45 minutes from now
+                                endTime: new Date(now.getTime() + 90 * 60000) // 1.5 hours from now
+                            }
+                        ]
+                    },
+                    {
+                        id: 'personal-schedule',
+                        name: '⏰ Personal Schedule',
+                        events: [
+                            {
+                                title: 'Coffee Break',
+                                type: 'break',
+                                startTime: new Date(now.getTime() + 15 * 60000), // 15 minutes from now
+                                endTime: new Date(now.getTime() + 30 * 60000) // 30 minutes from now
+                            },
+                            {
+                                title: 'Lunch Break',
+                                type: 'break',
+                                startTime: new Date(now.getTime() + 120 * 60000), // 2 hours from now
+                                endTime: new Date(now.getTime() + 180 * 60000) // 3 hours from now
+                            }
+                        ]
+                    },
+                    {
+                        id: 'system-tasks',
+                        name: '⚙️ System Tasks',
+                        events: [
+                            {
+                                title: 'Backup Process',
+                                type: 'task',
+                                startTime: new Date(now.getTime() - 60 * 60000), // 1 hour ago
+                                endTime: new Date(now.getTime() - 50 * 60000) // 50 minutes ago
+                            },
+                            {
+                                title: 'System Update',
+                                type: 'milestone',
+                                startTime: new Date(now.getTime() + 90 * 60000) // 1.5 hours from now
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            const timeline = new TimelineVisualization('#timelineDemo', timelineData);
+
+            // Update timeline when theme changes
+            styleCoordinator.subscribe((event, data) => {
+                if (event === 'themeChanged') {
+                    // Timeline automatically adapts to CSS variables, no action needed
+                    console.log('Timeline adapted to new theme:', data.theme);
+                }
+            });
+
+            return timeline;
+        }
+
+        // Initialize the timeline
+        const timelineInstance = initializeTimelineDemo();
+
+        // Add timeline controls to demonstrate functionality
+        window.timelineDemo = {
+            addEvent: function() {
+                const now = new Date();
+                timelineInstance.updateItem('project-alpha', {
+                    events: [
+                        ...timelineInstance.options.items.find(item => item.id === 'project-alpha').events,
+                        {
+                            title: 'New Task',
+                            type: 'task',
+                            startTime: new Date(now.getTime() + 10 * 60000),
+                            endTime: new Date(now.getTime() + 40 * 60000)
+                        }
+                    ]
+                });
+            },
+            
+            changeTimeScale: function(scale) {
+                timelineInstance.options.timeScale = scale;
+                timelineInstance.updateTimeScale();
+            }
+        };
+
+        console.log('Timeline Demo initialized!');
+        console.log('Try: timelineDemo.addEvent() or timelineDemo.changeTimeScale("hours")');
     </script>
 </body>
 </html>
